@@ -1,0 +1,321 @@
+/* Motion polish pass: keeps the approved layout locked while adding premium, block-level animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    clip-path: inset(0 0 0 0);
+    transition:
+      opacity 520ms var(--ease-standard),
+      transform 700ms var(--ease-standard),
+      filter 700ms var(--ease-standard),
+      clip-path 700ms var(--ease-standard);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: transform;
+  }
+
+  .motion-ready [data-reveal].reveal-pending {
+    opacity: 1;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .motion-ready [data-reveal="headline"].reveal-pending {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  .motion-ready [data-reveal="fade"].reveal-pending {
+    transform: none;
+  }
+
+  .motion-ready [data-reveal="from-right"].reveal-pending {
+    transform: translate3d(18px, 0, 0) scale(0.99);
+  }
+
+  .motion-ready [data-reveal="from-left"].reveal-pending {
+    transform: translate3d(-16px, 0, 0) scale(0.995);
+  }
+
+  .motion-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  .home-hero__lead {
+    --reveal-delay: 80ms;
+  }
+
+  .home-hero__actions {
+    --reveal-delay: 150ms;
+  }
+
+  .home-hero__benefits {
+    --reveal-delay: 220ms;
+  }
+
+  .home-hero__trustline {
+    --reveal-delay: 300ms;
+  }
+
+  .dashboard-shell {
+    --reveal-delay: 170ms;
+  }
+
+  .feature-grid .feature-card:nth-child(2),
+  .review-steps .review-step:nth-child(2),
+  .review-pillars .review-pillar:nth-child(2),
+  .stat-grid .stat-card:nth-child(2),
+  .resource-grid .resource-card:nth-child(2) {
+    --reveal-delay: 90ms;
+  }
+
+  .feature-grid .feature-card:nth-child(3),
+  .review-steps .review-step:nth-child(3),
+  .review-pillars .review-pillar:nth-child(3),
+  .stat-grid .stat-card:nth-child(3),
+  .resource-grid .resource-card:nth-child(3) {
+    --reveal-delay: 170ms;
+  }
+
+  .feature-grid .feature-card:nth-child(4),
+  .stat-grid .stat-card:nth-child(4),
+  .resource-grid .resource-card:nth-child(4) {
+    --reveal-delay: 250ms;
+  }
+
+  .feature-grid .feature-card:nth-child(5) {
+    --reveal-delay: 330ms;
+  }
+
+  .feature-grid .feature-card:nth-child(6) {
+    --reveal-delay: 410ms;
+  }
+
+  .product-stack .product-card:nth-child(2) {
+    --reveal-delay: 140ms;
+  }
+
+  .motion-ready .home-hero__benefits .hero-benefit,
+  .motion-ready .dashboard-shell .dashboard-nav,
+  .motion-ready .dashboard-shell .dashboard-kpi,
+  .motion-ready .dashboard-shell .dashboard-scan-row,
+  .motion-ready .product-card .product-panel__copy,
+  .motion-ready .product-card .product-panel__visual,
+  .motion-ready .review-step .review-step__icon,
+  .motion-ready .review-step h3,
+  .motion-ready .review-step p {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .motion-ready .home-hero__benefits.reveal-pending .hero-benefit,
+  .motion-ready .dashboard-shell.reveal-pending .dashboard-nav,
+  .motion-ready .dashboard-shell.reveal-pending .dashboard-kpi,
+  .motion-ready .dashboard-shell.reveal-pending .dashboard-scan-row,
+  .motion-ready .product-card.reveal-pending .product-panel__copy,
+  .motion-ready .product-card.reveal-pending .product-panel__visual,
+  .motion-ready .review-step.reveal-pending .review-step__icon,
+  .motion-ready .review-step.reveal-pending h3,
+  .motion-ready .review-step.reveal-pending p {
+    opacity: 1;
+    transform: translate3d(0, 6px, 0);
+  }
+
+  .motion-ready .home-hero__benefits.is-visible .hero-benefit,
+  .motion-ready .dashboard-shell.is-visible .dashboard-nav,
+  .motion-ready .dashboard-shell.is-visible .dashboard-kpi,
+  .motion-ready .dashboard-shell.is-visible .dashboard-scan-row,
+  .motion-ready .product-card.is-visible .product-panel__copy,
+  .motion-ready .product-card.is-visible .product-panel__visual,
+  .motion-ready .review-step.is-visible .review-step__icon,
+  .motion-ready .review-step.is-visible h3,
+  .motion-ready .review-step.is-visible p {
+    animation: blockRise 520ms var(--ease-standard) forwards;
+  }
+
+  .motion-ready .home-hero__benefits.is-visible .hero-benefit:nth-child(2),
+  .motion-ready .dashboard-shell.is-visible .dashboard-nav:nth-child(3),
+  .motion-ready .dashboard-shell.is-visible .dashboard-kpi:nth-child(2),
+  .motion-ready .dashboard-shell.is-visible .dashboard-scan-row:nth-child(2),
+  .motion-ready .review-step.is-visible h3 {
+    animation-delay: 60ms;
+  }
+
+  .motion-ready .home-hero__benefits.is-visible .hero-benefit:nth-child(3),
+  .motion-ready .dashboard-shell.is-visible .dashboard-nav:nth-child(4),
+  .motion-ready .dashboard-shell.is-visible .dashboard-kpi:nth-child(3),
+  .motion-ready .dashboard-shell.is-visible .dashboard-scan-row:nth-child(3),
+  .motion-ready .review-step.is-visible p,
+  .motion-ready .product-card.is-visible .product-panel__visual {
+    animation-delay: 120ms;
+  }
+
+  .motion-ready .home-hero__benefits.is-visible .hero-benefit:nth-child(4),
+  .motion-ready .dashboard-shell.is-visible .dashboard-nav:nth-child(5) {
+    animation-delay: 180ms;
+  }
+
+  .motion-ready .dashboard-shell.is-visible .dashboard-nav:nth-child(6) {
+    animation-delay: 240ms;
+  }
+
+  .motion-ready .is-visible .donut-chart__ring {
+    animation: donutConfirm 900ms var(--ease-standard) 180ms both;
+  }
+
+  .motion-ready .is-visible .badge--teal,
+  .motion-ready .is-visible .badge--cream {
+    animation: badgeConfirm 760ms var(--ease-standard) 260ms both;
+  }
+
+  .motion-ready .is-visible .mini-upload__box {
+    animation: uploadGlow 1500ms var(--ease-standard) 260ms both;
+  }
+
+  .motion-ready .is-visible .mini-sparkline polyline {
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    animation: drawLine 1200ms var(--ease-standard) 260ms forwards;
+  }
+
+  .motion-ready .is-visible .resource-preview--faq .plus-symbol {
+    animation: plusSettle 620ms var(--ease-standard) 240ms both;
+  }
+}
+
+.has-scrolled .site-header {
+  background: rgba(255, 252, 247, 0.94);
+  box-shadow: 0 10px 34px rgba(12, 26, 46, 0.08);
+}
+
+.site-header {
+  transition:
+    background var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard);
+}
+
+.button svg:last-child,
+.resource-card__cta svg,
+.site-footer__column a svg {
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.button:hover svg:last-child,
+.resource-card__cta:hover svg,
+.site-footer__column a:hover svg {
+  transform: translateX(0.18rem);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .feature-card,
+  .product-card,
+  .review-step,
+  .review-pillar,
+  .stat-card,
+  .resource-card,
+  .dashboard-shell,
+  .product-workbench,
+  .site-footer__panel {
+    transition:
+      transform var(--duration-base) var(--ease-standard),
+      box-shadow var(--duration-base) var(--ease-standard),
+      border-color var(--duration-base) var(--ease-standard),
+      background var(--duration-base) var(--ease-standard);
+  }
+
+  .feature-card:hover,
+  .product-card:hover,
+  .stat-card:hover,
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: rgba(0, 113, 116, 0.18);
+  }
+
+  .review-step:hover,
+  .review-pillar:hover,
+  .resource-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+  }
+
+  .dashboard-shell:hover,
+  .product-workbench:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes blockRise {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 6px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes donutConfirm {
+  0% {
+    opacity: 0.72;
+    transform: rotate(-18deg) scale(0.92);
+  }
+
+  68% {
+    transform: rotate(2deg) scale(1.035);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes badgeConfirm {
+  0% {
+    transform: scale(0.96);
+  }
+
+  52% {
+    transform: scale(1.055);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes uploadGlow {
+  0% {
+    border-color: rgba(0, 113, 116, 0.22);
+    box-shadow: none;
+  }
+
+  42% {
+    border-color: rgba(114, 221, 210, 0.8);
+    box-shadow: 0 0 0 6px rgba(114, 221, 210, 0.12);
+  }
+
+  100% {
+    border-color: rgba(0, 113, 116, 0.32);
+    box-shadow: none;
+  }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes plusSettle {
+  from {
+    transform: rotate(-90deg) scale(0.85);
+  }
+
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}

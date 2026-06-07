@@ -1,0 +1,8 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">DocuScrit favicon</title>
+  <desc id="desc">DocuScrit approved mark on a white square background.</desc>
+  <rect width="512" height="512" fill="#FBF2E3"/>
+  <g transform="translate(32 107.54) scale(0.681887)">
+    <path d="M317.5 0H224.5C98.5 0 0 94.5 0 218.1C0 341.7 99.2 436 224.6 436H260.8L249.6 386.7H214.2C127.7 386.7 58.1 316.9 58.1 218.1C58.1 119.1 128.5 49.2 218.3 49.2H260.1C255.1 63.5 253 77.1 253 93.5V436H317.5V0ZM348.7 0H475.5C580.6 0 647.2 70.6 656.2 156.2H598.9C589.4 93.4 543.6 49.2 475.8 49.2H399.7C406.8 64.4 410.2 82.2 410.2 103.5V322.5C410.2 344.4 400.1 363.5 382.7 386.8H475.8C543.5 386.8 590.3 337.1 600.2 259.8H657C648.6 359.3 579.5 436 475.5 436H348.7V0Z" fill="#005C63"/>
+  </g>
+</svg>

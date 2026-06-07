@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">DocuScrit social preview card</title>
+  <desc id="desc">DocuScrit brand card with the message compliance records you can defend.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBF2E3"/>
+      <stop offset="0.48" stop-color="#F6FAFC"/>
+      <stop offset="1" stop-color="#DCECF8"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="80" y1="92" x2="1120" y2="538" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#06243B"/>
+      <stop offset="1" stop-color="#005C63"/>
+    </linearGradient>
+    <filter id="shadow" x="20" y="36" width="1160" height="558" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="38" flood-color="#0C1A2E" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1035" cy="95" r="170" fill="#72DDD2" opacity="0.2"/>
+  <circle cx="110" cy="560" r="190" fill="#ECCB92" opacity="0.22"/>
+  <g filter="url(#shadow)">
+    <rect x="80" y="92" width="1040" height="446" rx="44" fill="url(#panel)"/>
+    <path d="M855 140h190c14 0 25 11 25 25v202c0 14-11 25-25 25H855c-14 0-25-11-25-25V165c0-14 11-25 25-25Z" fill="#FFFFFF" opacity="0.08"/>
+    <path d="M870 174h84M870 215h158M870 256h130M870 336h98" stroke="#BFEEE7" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
+    <path d="M235 185h185c100 0 160 56 175 136h-68c-15-44-50-70-105-70h-42c18 24 27 52 27 86v137h-76V250h-84c-75 0-131 54-131 132 0 77 55 132 130 132h62l10 54h-83c-112 0-197-80-197-186 0-109 84-197 197-197Z" fill="#FFFFFF" opacity="0.14"/>
+    <text x="150" y="196" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600" letter-spacing="-2">DocuScrit</text>
+    <text x="150" y="285" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">Compliance records</text>
+    <text x="150" y="370" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">you can defend.</text>
+    <text x="153" y="440" fill="#C8E6E4" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">HOA compliance workflows with human review built in.</text>
+  </g>
+</svg>

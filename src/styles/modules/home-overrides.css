@@ -1,0 +1,109 @@
+/* Final QA pass: remove duplicated proof strips, tighten section rhythm, and keep CTA copy from wrapping word-by-word. */
+.section {
+  padding-block: clamp(3.1rem, 4.8vw, 4.9rem);
+}
+
+.home-hero {
+  padding-block: clamp(2.2rem, 4.2vw, 3.9rem) clamp(2.6rem, 4.6vw, 4.2rem);
+}
+
+.platform-section {
+  padding-top: clamp(3rem, 4.5vw, 4.6rem);
+}
+
+.product-section,
+.proof-section {
+  padding-block: clamp(3.2rem, 4.6vw, 4.8rem);
+}
+
+.review-section,
+.resources-section {
+  padding-block: clamp(3.3rem, 4.8vw, 5rem);
+}
+
+.feature-card {
+  min-height: 20.6rem;
+  padding: 1rem;
+}
+
+.feature-card__preview {
+  min-height: 8.3rem;
+}
+
+.product-stack {
+  gap: 1rem;
+}
+
+.product-panel {
+  padding: clamp(1.1rem, 2.1vw, 1.75rem);
+}
+
+.product-workbench {
+  min-height: 19rem;
+}
+
+.proof-grid {
+  align-items: stretch;
+}
+
+.resources-section__cta {
+  margin-top: 1.15rem;
+}
+
+.final-cta {
+  padding-block: clamp(3rem, 4.5vw, 4.7rem) 0;
+  background: linear-gradient(180deg, var(--color-navy-900) 0%, var(--color-navy-900) 58%, transparent 58%);
+}
+
+.final-cta__card {
+  padding: clamp(2.1rem, 4.6vw, 3.6rem) clamp(1.25rem, 4vw, 2.4rem);
+}
+
+.final-cta__card .eyebrow {
+  color: var(--color-teal-400);
+}
+
+.final-cta__card h2 {
+  max-width: 980px;
+  text-wrap: balance;
+  font-size: clamp(2.35rem, 4vw, 4.5rem);
+  line-height: 0.98;
+}
+
+.final-cta__card > p:not(.eyebrow) {
+  max-width: 720px;
+}
+
+.final-cta__benefits {
+  max-width: 980px;
+}
+
+@media (max-width: 920px) {
+  .section {
+    padding-block: 3.25rem;
+  }
+
+  .product-section,
+  .proof-section,
+  .review-section,
+  .resources-section {
+    padding-block: 3.4rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .final-cta__card h2 {
+    font-size: clamp(2.15rem, 10vw, 3.1rem);
+  }
+
+  .final-cta__benefits {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .final-cta__benefits div {
+    justify-content: center;
+    width: 100%;
+  }
+}

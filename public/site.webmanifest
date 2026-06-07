@@ -1,0 +1,17 @@
+{
+  "name": "DocuScrit",
+  "short_name": "DocuScrit",
+  "description": "HOA compliance review platform with human review built in.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf2e3",
+  "theme_color": "#06243b",
+  "icons": [
+    {
+      "src": "/brand/docuscrit-app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+/* Phase 2 trust/content pass: replace placeholder proof with process proof. */
+.proof-narrative {
+  align-content: start;
+}
+
+.proof-narrative h3 {
+  max-width: 32rem;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 2.2vw, 2.55rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.proof-narrative > p {
+  max-width: 42rem;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+.proof-narrative__list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.proof-narrative__list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--color-ink-muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.proof-narrative__list li::before {
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--color-teal-600);
+  content: "";
+}
+
+.proof-point-card {
+  min-height: 11.25rem;
+}
+
+.proof-point-card strong {
+  max-width: 18rem;
+  font-size: clamp(1.1rem, 1.35vw, 1.45rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.proof-point-card p {
+  margin-top: 0.25rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.site-footer__contact a[href^="mailto:"] + a[href^="mailto:"] {
+  padding-left: 1.45rem;
+}

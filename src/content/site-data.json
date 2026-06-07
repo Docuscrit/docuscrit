@@ -1,0 +1,52 @@
+{
+  "siteUrl": "https://docuscrit.com",
+  "siteName": "DocuScrit",
+  "siteTagline": "Compliance records you can defend",
+  "siteDescription": "DocuScrit helps HOA management teams find compliance gaps, estimate exposure, and prepare reviewed compliance packages with human review built in.",
+  "socialImagePath": "/brand/docuscrit-og-card.png",
+  "contactEmail": "information@docuscrit.com",
+  "routes": {
+    "/": {
+      "path": "/",
+      "title": "DocuScrit | HOA compliance review platform",
+      "description": "DocuScrit helps HOA management teams find compliance gaps, estimate exposure, and prepare reviewed compliance packages with human review built in.",
+      "ogType": "website",
+      "priority": "1.0",
+      "changefreq": "weekly"
+    },
+    "/demo": {
+      "path": "/demo",
+      "title": "Request a DocuScrit Demo | HOA compliance workflow walkthrough",
+      "description": "Request a DocuScrit walkthrough to review the Compliance Gap Scanner, E-Civil Case Builder, and human-reviewed package workflow.",
+      "ogType": "website",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/resources": {
+      "path": "/resources",
+      "title": "DocuScrit Resources | HOA compliance workflow guides",
+      "description": "Browse DocuScrit product explainers, workflow guides, and human-review resources for HOA compliance teams.",
+      "ogType": "website",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    "/privacy": {
+      "path": "/privacy",
+      "title": "Privacy Policy | DocuScrit",
+      "description": "Read how DocuScrit handles information submitted through the website and demo request flow.",
+      "ogType": "article",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    },
+    "/terms": {
+      "path": "/terms",
+      "title": "Terms of Service | DocuScrit",
+      "description": "Read the terms that govern access to the DocuScrit marketing website, resources, and demo request flow.",
+      "ogType": "article",
+      "priority": "0.3",
+      "changefreq": "yearly"
+    }
+  },
+  "contactPhone": "(833) 362-6382",
+  "contactPhoneTel": "+18333626382"
+}

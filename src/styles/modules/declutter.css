@@ -1,0 +1,96 @@
+/* Declutter pass: keep the approved branded icon layer, remove visual noise from later rounds. */
+.platform-section::before,
+.product-section::before,
+.proof-section::before {
+  opacity: 0.12;
+}
+
+.resource-card {
+  grid-template-rows: auto auto auto 1fr auto;
+  min-height: 19rem;
+  gap: 0.72rem;
+}
+
+.resource-preview-simple {
+  display: grid;
+  gap: 0.65rem;
+  align-self: end;
+  min-height: 6.35rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(114, 221, 210, 0.14);
+  border-radius: 0.95rem;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.resource-preview-simple__head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #e7fffb;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resource-preview-simple__lines {
+  display: grid;
+  gap: 0.36rem;
+}
+
+.resource-preview-simple__lines span {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.76rem;
+}
+
+.resource-preview-simple__lines span::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: var(--color-teal-400);
+  opacity: 0.86;
+}
+
+.testimonial-card {
+  align-content: center;
+}
+
+.review-section .section-heading {
+  margin-bottom: clamp(1.6rem, 2.6vw, 2.35rem);
+}
+
+.review-trust-signals {
+  margin-bottom: clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.compliance-record-seal--compact {
+  min-height: 5.25rem;
+  padding: 0.75rem;
+}
+
+.compliance-record-seal--compact strong,
+.compliance-record-seal--compact span,
+.compliance-record-seal--compact small {
+  display: block;
+  line-height: 1.2;
+}
+
+.compliance-record-seal--compact strong {
+  margin-block: 0.08rem;
+  font-size: 0.92rem;
+}
+
+.final-cta__card {
+  padding-bottom: clamp(3.2rem, 5vw, 4.5rem);
+}
+
+@media (max-width: 920px) {
+  .resource-card {
+    min-height: auto;
+  }
+}
