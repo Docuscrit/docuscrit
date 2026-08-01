@@ -1,6 +1,6 @@
 export const CONTACT_EMAIL = "information@docuscrit.com";
-export const CONTACT_PHONE_DISPLAY = "(833) 362-6382";
-export const CONTACT_PHONE_TEL = "+18333626382";
+export const CONTACT_PHONE_DISPLAY = "(832) 239-9924";
+export const CONTACT_PHONE_TEL = "+18322399924";
 
 export function createMailto(subject: string, body: string) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
