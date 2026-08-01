@@ -156,7 +156,7 @@ export const footerColumns: FooterColumn[] = [
     title: "Contact",
     links: [
       { label: "information@docuscrit.com", href: "mailto:information@docuscrit.com" },
-      { label: "(833) 362-6382", href: "tel:+18333626382" },
+      { label: "(832) 239-9924", href: "tel:+18322399924" },
       { label: "Request a demo", href: "/demo" },
     ],
   },
