@@ -60,7 +60,7 @@ assertIncludes(".env.example", "VITE_DISABLE_ANALYTICS=false", ".env.example is 
 assertIncludes("src/hooks/useRevealAnimations.ts", "REVEAL_SAFETY_TIMEOUT_MS", "reveal animations need a safety timeout");
 assertIncludes("src/styles/modules/motion.css", "reveal-pending", "motion styles must use reveal-pending instead of hiding all reveal targets");
 assertIncludes("src/utils/contact.ts", "information@docuscrit.com", "contact email is not updated to the production address");
-assertIncludes("src/utils/contact.ts", "(833) 362-6382", "contact phone is not updated to the production number");
+assertIncludes("src/utils/contact.ts", "(832) 239-9924", "contact phone is not updated to the production number");
 assertIncludes("src/utils/formspree.ts", "VITE_FORM_ENDPOINT", "Formspree endpoint env var is not wired");
 assertIncludes(".env.example", "VITE_FORM_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID", ".env.example is missing the Formspree endpoint");
 assertIncludes(".env.example", "VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX", ".env.example is missing the GA4 measurement ID");
