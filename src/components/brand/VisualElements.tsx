@@ -250,7 +250,7 @@ export function DocumentUploadWidget({ className }: { className?: string }) {
         <span>or browse to upload</span>
       </div>
       <p>PDF, DOCX, XLSX, CSV, ZIP up to 100MB</p>
-      <small>Documents are encrypted and stored securely.</small>
+      <small>Designed for controlled document intake and review.</small>
     </div>
   );
 }

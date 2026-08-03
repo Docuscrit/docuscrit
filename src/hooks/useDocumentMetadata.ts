@@ -118,7 +118,7 @@ export function useDocumentMetadata(route: SitePageMetadata) {
     upsertMeta("property", "og:image", SITE_SOCIAL_IMAGE);
     upsertMeta("property", "og:image:width", "1200");
     upsertMeta("property", "og:image:height", "630");
-    upsertMeta("property", "og:image:alt", "DocuScrit compliance records you can defend");
+    upsertMeta("property", "og:image:alt", "DocuScrit compliance workflow platform");
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", route.title);
     upsertMeta("name", "twitter:description", route.description);

@@ -1,17 +1,28 @@
 import type { ReactNode } from "react";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { productByPath, type ProductPath } from "../content/products";
 import { SITE_ROUTES, normalizeSitePath, type SitePageMetadata } from "../content/site";
 import { useAnalytics } from "../hooks/useAnalytics";
 import { useDocumentMetadata } from "../hooks/useDocumentMetadata";
 import { DemoPage } from "../pages/DemoPage";
 import { HomePage } from "../pages/HomePage";
 import { LegalPage } from "../pages/LegalPage";
+import { ProductPage } from "../pages/ProductPage";
 import { ResourceCenterPage } from "../pages/ResourceCenterPage";
+import { SecurityPage } from "../pages/SecurityPage";
 
 function getPage(): { route: SitePageMetadata; content: ReactNode } {
   const pathname = normalizeSitePath(window.location.pathname);
   const route = SITE_ROUTES[pathname];
+
+  if (pathname in productByPath) {
+    return { route, content: <ProductPage product={productByPath[pathname as ProductPath]} /> };
+  }
+
+  if (pathname === "/security") {
+    return { route, content: <SecurityPage /> };
+  }
 
   if (pathname === "/resources") {
     return { route, content: <ResourceCenterPage /> };

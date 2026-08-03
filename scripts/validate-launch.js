@@ -118,6 +118,7 @@ for (const sourcePath of [
   "src/components/home/DashboardPreview.tsx",
   "src/components/home/FeaturePreview.tsx",
   "src/components/home/ProductPanel.tsx",
+  "src/components/products/ProductPreview.tsx",
   "src/content/resources.ts",
 ]) {
   const source = read(sourcePath);

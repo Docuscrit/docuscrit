@@ -4,15 +4,67 @@ import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Container } from "../components/ui/Container";
 import { Section } from "../components/ui/Section";
-import { resourceDetails } from "../content/resources";
+import {
+  resourceCategoryLabels,
+  resourceDetails,
+  type ResourceCategory,
+  type ResourceDetail,
+} from "../content/resources";
 import { createResourceMailto } from "../utils/contact";
 
-const iconByResourceId: Record<string, VisualIconName> = {
-  "vendor-coi-overview": "upload",
-  "claim-packet-workflow": "ecivil",
-  "risk-reporting-guide": "financialRisk",
-  "platform-overview": "mapping",
+const categoryOrder: ResourceCategory[] = ["platform", "vendor-coi", "legal-escalation", "risk-visibility", "security"];
+
+const iconByCategory: Record<ResourceCategory, VisualIconName> = {
+  platform: "mapping",
+  "vendor-coi": "upload",
+  "legal-escalation": "ecivil",
+  "risk-visibility": "financialRisk",
+  security: "shieldReview",
 };
+
+function ResourceCard({ resource }: { resource: ResourceDetail }) {
+  return (
+    <Card className="resource-library-card" id={resource.id} data-reveal="fade-up">
+      <div className="resource-library-card__meta">
+        <VisualIcon name={iconByCategory[resource.category]} size={26} />
+        <span>{resource.format}</span>
+        <span>{resource.readTime}</span>
+      </div>
+      <p className="eyebrow">{resource.eyebrow}</p>
+      <h3>{resource.title}</h3>
+      <p>{resource.summary}</p>
+      <p className="resource-library-card__audience">{resource.audience}</p>
+      <div className="resource-library-card__lists">
+        <div>
+          <strong>What it covers</strong>
+          <ul>
+            {resource.includes.slice(0, 3).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <strong>Useful outcomes</strong>
+          <ul>
+            {resource.outcomes.slice(0, 3).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="resource-library-card__actions">
+        <Button href={createResourceMailto(resource.title)}>
+          {resource.requestLabel}
+          <ArrowRight size={18} aria-hidden="true" />
+        </Button>
+        <Button href="/demo" variant="secondary">
+          Discuss in a demo
+          <ArrowRight size={18} aria-hidden="true" />
+        </Button>
+      </div>
+    </Card>
+  );
+}
 
 export function ResourceCenterPage() {
   return (
@@ -21,13 +73,13 @@ export function ResourceCenterPage() {
         <Container size="wide">
           <div className="subpage-hero__copy subpage-hero__copy--center">
             <p className="eyebrow">Resource center</p>
-            <h1>Practical guides for the DocuScrit compliance platform.</h1>
+            <h1>Practical guides organized around each DocuScrit workflow.</h1>
             <p>
-              Browse product explainers and workflow guides for vendor compliance, legal escalation, and board-ready risk visibility.
+              Browse platform, vendor compliance, legal escalation, risk reporting, and security evaluation resources.
             </p>
             <div className="subpage-hero__actions subpage-hero__actions--center">
-              <Button href="#vendor-coi-overview">
-                Browse resources
+              <Button href="#platform-resources">
+                Browse by solution
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
               <Button href="/demo" variant="secondary">
@@ -41,61 +93,47 @@ export function ResourceCenterPage() {
 
       <Section className="resource-hub-section">
         <Container size="wide">
-          <div className="resource-hub-grid">
-            {resourceDetails.map((resource) => (
-              <a className="resource-hub-card" href={`#${resource.id}`} key={resource.id}>
-                <VisualIcon name={iconByResourceId[resource.id]} size={26} />
-                <span>{resource.eyebrow}</span>
-                <strong>{resource.title}</strong>
-                <p>{resource.summary}</p>
-              </a>
-            ))}
-          </div>
+          <nav className="resource-category-nav" aria-label="Resource categories">
+            {categoryOrder.map((category) => {
+              const firstResource = resourceDetails.find((resource) => resource.category === category);
+              return (
+                <a href={`#${category}-resources`} key={category}>
+                  <VisualIcon name={iconByCategory[category]} size={22} />
+                  <span>{resourceCategoryLabels[category]}</span>
+                  <small>{resourceDetails.filter((resource) => resource.category === category).length} resources</small>
+                  <ArrowRight size={16} aria-hidden="true" />
+                  {firstResource ? <span className="sr-only">First resource: {firstResource.title}</span> : null}
+                </a>
+              );
+            })}
+          </nav>
         </Container>
       </Section>
 
-      <Section className="resource-detail-section">
+      <Section className="resource-library-section">
         <Container size="wide">
-          <div className="resource-detail-list">
-            {resourceDetails.map((resource) => (
-              <Card className="resource-detail-card" id={resource.id} key={resource.id}>
-                <div className="resource-detail-card__intro">
-                  <VisualIcon name={iconByResourceId[resource.id]} size={30} />
-                  <p className="eyebrow">{resource.eyebrow}</p>
-                  <h2>{resource.title}</h2>
-                  <p>{resource.summary}</p>
-                  <p className="resource-detail-card__audience">{resource.audience}</p>
-                </div>
-                <div className="resource-detail-card__columns">
-                  <div>
-                    <h3>What's inside</h3>
-                    <ul>
-                      {resource.includes.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+          <div className="resource-category-list">
+            {categoryOrder.map((category) => {
+              const resources = resourceDetails.filter((resource) => resource.category === category);
+              return (
+                <section className="resource-category" id={`${category}-resources`} key={category}>
+                  <div className="resource-category__heading" data-reveal="fade-up">
+                    <span className="resource-category__icon">
+                      <VisualIcon name={iconByCategory[category]} size={28} />
+                    </span>
+                    <div>
+                      <p className="eyebrow">Resource collection</p>
+                      <h2>{resourceCategoryLabels[category]}</h2>
+                    </div>
                   </div>
-                  <div>
-                    <h3>Useful outcomes</h3>
-                    <ul>
-                      {resource.outcomes.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
+                  <div className="resource-library-grid">
+                    {resources.map((resource) => (
+                      <ResourceCard resource={resource} key={resource.id} />
+                    ))}
                   </div>
-                </div>
-                <div className="resource-detail-card__actions">
-                  <Button href={createResourceMailto(resource.title)}>
-                    {resource.requestLabel}
-                    <ArrowRight size={18} aria-hidden="true" />
-                  </Button>
-                  <Button href="/demo" variant="secondary">
-                    Discuss in a demo
-                    <ArrowRight size={18} aria-hidden="true" />
-                  </Button>
-                </div>
-              </Card>
-            ))}
+                </section>
+              );
+            })}
           </div>
         </Container>
       </Section>
@@ -106,7 +144,8 @@ export function ResourceCenterPage() {
             <p className="eyebrow">Need the right resource?</p>
             <h2>Ask for the guide that matches your workflow.</h2>
             <p>
-              Tell DocuScrit what your team is trying to improve and they can point you toward the most relevant guide or walkthrough.
+              Tell DocuScrit what your team is trying to improve and the conversation can start with the most relevant guide
+              or walkthrough.
             </p>
             <Button href="/demo">
               Request guidance

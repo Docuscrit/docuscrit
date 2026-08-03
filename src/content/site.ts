@@ -6,7 +6,16 @@ export const SITE_TAGLINE = siteData.siteTagline;
 export const SITE_DESCRIPTION = siteData.siteDescription;
 export const SITE_SOCIAL_IMAGE = `${SITE_URL}${siteData.socialImagePath}`;
 
-export type SiteRoutePath = "/" | "/demo" | "/resources" | "/privacy" | "/terms";
+export type SiteRoutePath =
+  | "/"
+  | "/vendor-coi"
+  | "/legal-escalation"
+  | "/compliance-risk-visibility"
+  | "/security"
+  | "/demo"
+  | "/resources"
+  | "/privacy"
+  | "/terms";
 
 export type SitePageMetadata = {
   path: SiteRoutePath;

@@ -56,25 +56,6 @@ export const escalationPillars = [
   },
 ] as const;
 
-export const proofPoints = [
-  {
-    title: "Clear workflow status",
-    detail: "Teams can distinguish pending documents, renewal follow-up, draft packets, review checkpoints, and completed work.",
-  },
-  {
-    title: "Organized evidence trail",
-    detail: "Vendor records, compliance documents, notices, rule references, and supporting context stay connected.",
-  },
-  {
-    title: "Board-ready visibility",
-    detail: "Reports help managers and boards see which documents, policies, notices, or workflows may need attention.",
-  },
-  {
-    title: "Decision support, not replacement",
-    detail: "DocuScrit supports operational review while final business, compliance, and legal decisions remain with your team and counsel.",
-  },
-] as const;
-
 export const resourceCards: ResourceCard[] = [
   {
     title: "Vendor COI automation overview",
@@ -98,10 +79,10 @@ export const resourceCards: ResourceCard[] = [
     preview: "faq",
   },
   {
-    title: "DocuScrit platform overview",
-    copy: "Understand how vendor compliance, legal escalation, and risk visibility fit under one platform.",
-    cta: "Open platform guide",
-    href: "/resources#platform-overview",
+    title: "Security and governance overview",
+    copy: "Review the security, access, auditability, data-lifecycle, and decision-boundary topics to discuss during evaluation.",
+    cta: "Open security overview",
+    href: "/security",
     preview: "playbook",
   },
 ] as const;
@@ -111,22 +92,23 @@ export const footerColumns: FooterColumn[] = [
     title: "Platform",
     links: [
       { label: "Platform overview", href: "/#platform" },
-      ...productSolutions.map((product) => ({ label: product.name, href: `/#${product.id}` })),
+      ...productSolutions.map((product) => ({ label: product.name, href: product.path })),
     ],
   },
   {
     title: "For teams",
     links: [
-      { label: "Property managers", href: "/#platform" },
-      { label: "HOA boards", href: "/#risk-visibility" },
-      { label: "Compliance teams", href: "/#legal-escalation" },
-      { label: "Vendor coordinators", href: "/#vendor-coi" },
+      { label: "Community managers", href: "/#teams" },
+      { label: "HOA boards", href: "/#teams" },
+      { label: "Compliance teams", href: "/#teams" },
+      { label: "Vendor coordinators", href: "/#teams" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Resource center", href: "/resources" },
+      { label: "Security and governance", href: "/security" },
       { label: "Claim packet guide", href: "/resources#claim-packet-workflow" },
       { label: "Risk reporting guide", href: "/resources#risk-reporting-guide" },
     ],

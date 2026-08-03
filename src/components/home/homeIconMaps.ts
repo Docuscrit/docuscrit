@@ -10,5 +10,5 @@ export const resourceIconMap: Record<string, VisualIconName> = {
   overview: "upload",
   workflow: "ecivil",
   faq: "financialRisk",
-  playbook: "mapping",
+  playbook: "shieldReview",
 };

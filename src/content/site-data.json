@@ -14,6 +14,38 @@
       "priority": "1.0",
       "changefreq": "weekly"
     },
+    "/vendor-coi": {
+      "path": "/vendor-coi",
+      "title": "Vendor COI Automation for HOA Management | DocuScrit",
+      "description": "Centralize vendors, collect certificates of insurance, monitor expirations, automate renewal reminders, and surface vendor risk flags with DocuScrit.",
+      "ogType": "website",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/legal-escalation": {
+      "path": "/legal-escalation",
+      "title": "Legal Escalation and Claim Packet Workflow | DocuScrit",
+      "description": "Organize violation history, notices, evidence, cost context, and compliance review into a structured claim packet before legal escalation.",
+      "ogType": "website",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/compliance-risk-visibility": {
+      "path": "/compliance-risk-visibility",
+      "title": "Compliance Risk Visibility for HOA Boards | DocuScrit",
+      "description": "Give managers and HOA boards clearer visibility into document gaps, policy reviews, notice workflows, priorities, and follow-up status.",
+      "ogType": "website",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "/security": {
+      "path": "/security",
+      "title": "Security and Governance Evaluation | DocuScrit",
+      "description": "Review DocuScrit security and governance topics including document handling, access, auditability, data lifecycle, and human decision boundaries.",
+      "ogType": "website",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
     "/demo": {
       "path": "/demo",
       "title": "Request a DocuScrit Demo | Compliance workflow platform",
@@ -25,7 +57,7 @@
     "/resources": {
       "path": "/resources",
       "title": "DocuScrit Resources | Compliance workflow guides",
-      "description": "Browse DocuScrit guides for vendor COI automation, claim packet preparation, legal escalation readiness, and board-ready compliance risk reporting.",
+      "description": "Browse DocuScrit guides for vendor COI automation, claim packet preparation, legal escalation readiness, board-ready risk reporting, and security evaluation.",
       "ogType": "website",
       "priority": "0.8",
       "changefreq": "monthly"

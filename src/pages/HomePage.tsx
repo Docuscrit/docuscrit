@@ -1,5 +1,6 @@
 import { useRevealAnimations } from "../hooks/useRevealAnimations";
 import {
+  AudienceSection,
   FinalCtaSection,
   HeroSection,
   LegalEscalationSection,
@@ -17,6 +18,7 @@ export function HomePage() {
       <HeroSection />
       <PlatformFeaturesSection />
       <ProductSpotlightSection />
+      <AudienceSection />
       <LegalEscalationSection />
       <ProofSection />
       <ResourcesSection />

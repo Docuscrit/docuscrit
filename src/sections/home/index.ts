@@ -1,3 +1,4 @@
+export { AudienceSection } from "./AudienceSection";
 export { FinalCtaSection } from "./FinalCtaSection";
 export { HeroSection } from "./HeroSection";
 export { LegalEscalationSection } from "./LegalEscalationSection";

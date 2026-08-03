@@ -8,6 +8,10 @@ const executablePath = process.env.CHROMIUM_PATH;
 
 const routes = [
   { name: "home", path: "/" },
+  { name: "vendor-coi", path: "/vendor-coi" },
+  { name: "legal-escalation", path: "/legal-escalation" },
+  { name: "risk-visibility", path: "/compliance-risk-visibility" },
+  { name: "security", path: "/security" },
   { name: "resources", path: "/resources" },
   { name: "demo", path: "/demo" },
   { name: "privacy", path: "/privacy" },

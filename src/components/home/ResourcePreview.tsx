@@ -5,7 +5,7 @@ const previewContent: Record<ResourcePreviewType, { label: string; icon: VisualI
   overview: { label: "Vendor COI overview", icon: "upload", lines: ["Collect", "Monitor", "Renew"] },
   workflow: { label: "Claim packet guide", icon: "ecivil", lines: ["History", "Packet", "Review"] },
   faq: { label: "Risk reporting guide", icon: "financialRisk", lines: ["Documents", "Policies", "Actions"] },
-  playbook: { label: "Platform overview", icon: "mapping", lines: ["Vendor", "Escalation", "Visibility"] },
+  playbook: { label: "Security overview", icon: "shieldReview", lines: ["Access", "Auditability", "Boundaries"] },
 };
 
 export function ResourcePreview({ preview }: { preview: ResourcePreviewType }) {

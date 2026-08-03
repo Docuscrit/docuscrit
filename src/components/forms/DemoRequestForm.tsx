@@ -22,16 +22,21 @@ type DemoRequestFormValues = {
   gotcha: string;
 };
 
-const initialValues: DemoRequestFormValues = {
-  name: "",
-  email: "",
-  organization: "",
-  role: "",
-  communities: "",
-  message: "",
-  interests: [],
-  gotcha: "",
-};
+function createInitialValues(): DemoRequestFormValues {
+  const productId = new URLSearchParams(window.location.search).get("product");
+  const preselectedInterest = productSolutions.find((product) => product.id === productId)?.demoLabel ?? null;
+
+  return {
+    name: "",
+    email: "",
+    organization: "",
+    role: "",
+    communities: "",
+    message: "",
+    interests: preselectedInterest ? [preselectedInterest] : [],
+    gotcha: "",
+  };
+}
 
 type DemoRequestFormProps = {
   className?: string;
@@ -42,7 +47,7 @@ type DemoRequestFormProps = {
 type SubmitState = "idle" | "sending" | "success" | "error";
 
 export function DemoRequestForm({ className, tone = "light", compact = false }: DemoRequestFormProps) {
-  const [values, setValues] = useState<DemoRequestFormValues>(initialValues);
+  const [values, setValues] = useState<DemoRequestFormValues>(createInitialValues);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [status, setStatus] = useState("");
 
@@ -81,7 +86,7 @@ export function DemoRequestForm({ className, tone = "light", compact = false }: 
       await submitDemoRequest(values);
       setSubmitState("success");
       setStatus("Thanks. Your demo request has been sent to DocuScrit.");
-      setValues(initialValues);
+      setValues(createInitialValues());
     } catch (error) {
       setSubmitState("error");
       setStatus(

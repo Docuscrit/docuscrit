@@ -41,7 +41,7 @@ export function PlatformFeaturesSection() {
               <div className="feature-card__preview">
                 <FeaturePreview type={product.preview} />
               </div>
-              <a className="solution-card__link" href={`/#${product.id}`}>
+              <a className="solution-card__link" href={product.path}>
                 Explore {product.shortName}
               </a>
             </Card>
