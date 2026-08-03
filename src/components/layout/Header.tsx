@@ -9,9 +9,11 @@ function getHrefPath(href: string) {
   return href.startsWith("/") ? href.split("#")[0] || "/" : href;
 }
 
-function isNavigationItemActive(href: string, activePath: string) {
+function isNavigationItemActive(href: string, activePath: string, activeHash: string) {
   if (activePath === "/") {
-    return href === "/#about";
+    const hrefHash = href.includes("#") ? `#${href.split("#")[1]}` : "";
+    const currentHash = activeHash && activeHash !== "#about" ? activeHash : "#platform";
+    return hrefHash === currentHash;
   }
 
   return normalizeSitePath(getHrefPath(href)) === activePath;
@@ -19,9 +21,20 @@ function isNavigationItemActive(href: string, activePath: string) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState(window.location.hash);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const activePath = normalizeSitePath(window.location.pathname);
+
+
+  useEffect(() => {
+    function handleHashChange() {
+      setActiveHash(window.location.hash);
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -89,7 +102,7 @@ export function Header() {
 
         <nav className="site-nav" aria-label="Primary navigation">
           {navigation.map((item) => {
-            const isActive = isNavigationItemActive(item.href, activePath);
+            const isActive = isNavigationItemActive(item.href, activePath, activeHash);
 
             return (
               <a key={item.href} className="site-nav__link" href={item.href} aria-current={isActive ? "page" : undefined}>
@@ -127,7 +140,7 @@ export function Header() {
         <Container className="site-menu-panel__inner" size="wide">
           <div className="site-menu-panel__links">
             {navigation.map((item) => {
-              const isActive = isNavigationItemActive(item.href, activePath);
+              const isActive = isNavigationItemActive(item.href, activePath, activeHash);
 
               return (
                 <a

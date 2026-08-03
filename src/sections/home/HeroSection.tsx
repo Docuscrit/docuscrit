@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { DashboardPreview } from "../../components/home/DashboardPreview";
 import { VisualIcon } from "../../components/brand/VisualElements";
 import { Button } from "../../components/ui/Button";
@@ -14,28 +14,39 @@ export function HeroSection() {
             <a className="site-logo site-logo--hero" href="/#about" aria-label="DocuScrit home">
               <span className="site-logo__wordmark">DocuScrit</span>
             </a>
+            <p className="eyebrow home-hero__eyebrow" data-reveal="fade">
+              The compliance workflow platform
+            </p>
             <h1 data-reveal="headline">
-              <span className="home-hero__headline-line">Find violations.</span>
-              <span className="home-hero__headline-line">Measure risk.</span>
-              <span className="home-hero__headline-line home-hero__headline-line--accent">Take action faster.</span>
+              <span className="home-hero__headline-line">Manage vendor compliance.</span>
+              <span className="home-hero__headline-line">See risk sooner.</span>
+              <span className="home-hero__headline-line home-hero__headline-line--accent">Prepare for escalation.</span>
             </h1>
             <p className="home-hero__lead" data-reveal="fade-up">
-              DocuScrit helps HOAs and management companies find compliance gaps, estimate exposure, and prepare
-              reviewed action packages so you can protect your community with confidence.
+              DocuScrit helps HOA and property-management teams automate vendor COI tracking, identify compliance workflow
+              gaps, and prepare reviewed claim packets before legal or court escalation.
             </p>
             <div className="home-hero__actions" data-reveal="fade-up">
               <Button href="/demo">
                 Request Demo
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
-              <div className="home-hero__promise">
-                <VisualIcon name="shieldReview" size={18} />
-                <span>Homeowner-facing packages are reviewed by a DocuScrit Compliance Officer.</span>
-              </div>
+              <Button href="/#platform" variant="secondary">
+                Explore the platform
+                <ArrowDown size={18} aria-hidden="true" />
+              </Button>
+            </div>
+
+            <div className="home-hero__promise" data-reveal="fade-up">
+              <VisualIcon name="shieldReview" size={18} />
+              <span>
+                Built to support managers, boards, compliance teams, and legal counsel—not replace their judgment.
+              </span>
             </div>
 
             <p className="home-hero__trustline" data-reveal="fade">
-              Built for HOA management teams that need transparency, documentation, and stronger compliance workflows.
+              One DocuScrit platform. Three connected workflows for vendor compliance, escalation readiness, and board-level
+              risk visibility.
             </p>
           </div>
 

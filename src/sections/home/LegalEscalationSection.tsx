@@ -7,32 +7,33 @@ import {
   ReadyForReviewSignal,
   VisualIcon,
 } from "../../components/brand/VisualElements";
-import { reviewPillars, reviewSteps } from "../../content/home";
+import { escalationPillars, escalationSteps } from "../../content/home";
 
-export function HumanReviewSection() {
+export function LegalEscalationSection() {
   return (
-    <Section className="review-section" id="human-review">
+    <Section className="review-section legal-escalation-section" id="legal-review">
       <Container size="wide">
         <div className="section-heading section-heading--center section-heading--light" data-reveal="fade-up">
-          <p className="eyebrow eyebrow--teal">Our process. Our promise.</p>
-          <h2>Human review is our promise.</h2>
+          <p className="eyebrow eyebrow--teal">Legal escalation workflow</p>
+          <h2>Reviewed before legal escalation.</h2>
           <p>
-            Homeowner-facing case packages are reviewed by an experienced DocuScrit Compliance Officer before delivery.
+            DocuScrit organizes violation history and supporting records into a structured claim packet, with a compliance
+            review checkpoint before legal counsel or court escalation.
           </p>
         </div>
 
         <div className="review-trust-signals" data-reveal="fade-up">
-          <OfficerReviewedSignal className="trust-signal--dark" />
           <ReadyForReviewSignal className="trust-signal--dark" />
+          <OfficerReviewedSignal className="trust-signal--dark" />
           <HumanReviewedSignal className="trust-signal--dark" />
         </div>
 
         <div className="review-steps">
-          {reviewSteps.map((step, index) => (
+          {escalationSteps.map((step, index) => (
             <Card key={step.step} className="review-step" data-reveal="fade-up">
-              <div className="review-step__badge">0{index + 1}</div>
+              <div className="review-step__badge">{step.step}</div>
               <div className="review-step__icon">
-                <VisualIcon name={index === 0 ? "upload" : index === 1 ? "financialRisk" : "humanReview"} size={24} />
+                <VisualIcon name={index === 0 ? "mapping" : index === 1 ? "ecivil" : "shieldReview"} size={24} />
               </div>
               <h3>{step.title}</h3>
               <p>{step.copy}</p>
@@ -41,7 +42,7 @@ export function HumanReviewSection() {
         </div>
 
         <div className="review-pillars">
-          {reviewPillars.map((pillar) => (
+          {escalationPillars.map((pillar) => (
             <div key={pillar.title} className="review-pillar" data-reveal="fade-up">
               <strong>{pillar.title}</strong>
               <span>{pillar.copy}</span>
@@ -49,6 +50,11 @@ export function HumanReviewSection() {
             </div>
           ))}
         </div>
+
+        <p className="review-disclaimer" data-reveal="fade">
+          DocuScrit supports documentation and compliance review. It does not provide legal advice, determine legal outcomes,
+          or replace the independent judgment of your organization or legal counsel.
+        </p>
       </Container>
     </Section>
   );

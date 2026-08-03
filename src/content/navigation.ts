@@ -1,7 +1,10 @@
+import { productSolutions } from "./products";
+
 export const navigation = [
-  { label: "About", href: "/#about" },
-  { label: "Products", href: "/#products" },
-  { label: "Human Review", href: "/#human-review" },
+  { label: "Platform", href: "/#platform" },
+  ...productSolutions.map((product) => ({
+    label: product.navigationLabel,
+    href: `/#${product.id}`,
+  })),
   { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/demo" },
-] as const;
+];

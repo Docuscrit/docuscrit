@@ -139,7 +139,7 @@ function renderRoute(route) {
   html = replaceMeta(html, "property", "og:image", socialImage);
   html = replaceMeta(html, "property", "og:image:width", "1200");
   html = replaceMeta(html, "property", "og:image:height", "630");
-  html = replaceMeta(html, "property", "og:image:alt", "DocuScrit compliance records you can defend");
+  html = replaceMeta(html, "property", "og:image:alt", "DocuScrit compliance workflow platform");
   html = replaceMeta(html, "name", "twitter:card", "summary_large_image");
   html = replaceMeta(html, "name", "twitter:title", route.title);
   html = replaceMeta(html, "name", "twitter:description", route.description);

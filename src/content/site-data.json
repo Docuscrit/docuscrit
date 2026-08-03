@@ -1,31 +1,31 @@
 {
   "siteUrl": "https://docuscrit.com",
   "siteName": "DocuScrit",
-  "siteTagline": "Compliance records you can defend",
-  "siteDescription": "DocuScrit helps HOA management teams find compliance gaps, estimate exposure, and prepare reviewed compliance packages with human review built in.",
+  "siteTagline": "Compliance workflows you can see and manage",
+  "siteDescription": "DocuScrit is a compliance workflow platform for HOA and property-management teams, with vendor COI automation, reviewed claim packet workflows, and board-ready compliance risk visibility.",
   "socialImagePath": "/brand/docuscrit-og-card.png",
   "contactEmail": "information@docuscrit.com",
   "routes": {
     "/": {
       "path": "/",
-      "title": "DocuScrit | HOA compliance review platform",
-      "description": "DocuScrit helps HOA management teams find compliance gaps, estimate exposure, and prepare reviewed compliance packages with human review built in.",
+      "title": "DocuScrit | HOA and property compliance workflow platform",
+      "description": "Automate vendor COI tracking, prepare compliance-reviewed claim packets before legal escalation, and give boards clearer compliance risk visibility with DocuScrit.",
       "ogType": "website",
       "priority": "1.0",
       "changefreq": "weekly"
     },
     "/demo": {
       "path": "/demo",
-      "title": "Request a DocuScrit Demo | HOA compliance workflow walkthrough",
-      "description": "Request a DocuScrit walkthrough to review the Compliance Gap Scanner, E-Civil Case Builder, and human-reviewed package workflow.",
+      "title": "Request a DocuScrit Demo | Compliance workflow platform",
+      "description": "Request a tailored walkthrough of Vendor COI Automation, Legal Escalation and Claim Packets, Compliance Risk Visibility, or the complete DocuScrit platform.",
       "ogType": "website",
       "priority": "0.9",
       "changefreq": "monthly"
     },
     "/resources": {
       "path": "/resources",
-      "title": "DocuScrit Resources | HOA compliance workflow guides",
-      "description": "Browse DocuScrit product explainers, workflow guides, and human-review resources for HOA compliance teams.",
+      "title": "DocuScrit Resources | Compliance workflow guides",
+      "description": "Browse DocuScrit guides for vendor COI automation, claim packet preparation, legal escalation readiness, and board-ready compliance risk reporting.",
       "ogType": "website",
       "priority": "0.8",
       "changefreq": "monthly"

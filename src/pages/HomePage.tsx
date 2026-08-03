@@ -2,7 +2,7 @@ import { useRevealAnimations } from "../hooks/useRevealAnimations";
 import {
   FinalCtaSection,
   HeroSection,
-  HumanReviewSection,
+  LegalEscalationSection,
   PlatformFeaturesSection,
   ProductSpotlightSection,
   ProofSection,
@@ -17,7 +17,7 @@ export function HomePage() {
       <HeroSection />
       <PlatformFeaturesSection />
       <ProductSpotlightSection />
-      <HumanReviewSection />
+      <LegalEscalationSection />
       <ProofSection />
       <ResourcesSection />
       <FinalCtaSection />

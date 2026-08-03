@@ -7,10 +7,10 @@ import { Section } from "../components/ui/Section";
 import { CONTACT_EMAIL } from "../utils/contact";
 
 const demoHighlights = [
-  "Walk through the Compliance Gap Scanner workflow",
-  "Review how E-Civil Case Builder packages are prepared",
-  "See where human review enters before homeowner-facing delivery",
-  "Discuss what records your team would upload first",
+  "Automate vendor COI collection, expiration monitoring, and renewal reminders",
+  "Review the path from violation history to a compliance-reviewed claim packet",
+  "See board-ready visibility into document, policy, notice, and workflow gaps",
+  "Discuss one workflow or the complete DocuScrit platform",
 ] as const;
 
 export function DemoPage() {
@@ -21,9 +21,10 @@ export function DemoPage() {
           <div className="subpage-hero__grid">
             <div className="subpage-hero__copy">
               <p className="eyebrow">Request demo</p>
-              <h1>See how DocuScrit supports reviewed HOA compliance workflows.</h1>
+              <h1>See how the DocuScrit platform fits your compliance operation.</h1>
               <p>
-                Use the form to send a demo request with the details a DocuScrit specialist needs for a useful walkthrough.
+                Choose the workflow you want to explore and the DocuScrit team will tailor the walkthrough to your HOA or
+                property-management operation.
               </p>
               <div className="subpage-hero__actions">
                 <Button href="#demo-form">

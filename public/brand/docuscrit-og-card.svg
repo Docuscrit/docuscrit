@@ -1,6 +1,6 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">DocuScrit social preview card</title>
-  <desc id="desc">DocuScrit brand card with the message compliance records you can defend.</desc>
+  <desc id="desc">DocuScrit brand card presenting one platform for vendor COI, claim packet, and compliance risk workflows.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FBF2E3"/>
@@ -24,8 +24,8 @@
     <path d="M870 174h84M870 215h158M870 256h130M870 336h98" stroke="#BFEEE7" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
     <path d="M235 185h185c100 0 160 56 175 136h-68c-15-44-50-70-105-70h-42c18 24 27 52 27 86v137h-76V250h-84c-75 0-131 54-131 132 0 77 55 132 130 132h62l10 54h-83c-112 0-197-80-197-186 0-109 84-197 197-197Z" fill="#FFFFFF" opacity="0.14"/>
     <text x="150" y="196" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="600" letter-spacing="-2">DocuScrit</text>
-    <text x="150" y="285" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">Compliance records</text>
-    <text x="150" y="370" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">you can defend.</text>
-    <text x="153" y="440" fill="#C8E6E4" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">HOA compliance workflows with human review built in.</text>
+    <text x="150" y="285" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">One platform for</text>
+    <text x="150" y="370" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="78" font-weight="600" letter-spacing="-4">compliance work.</text>
+    <text x="153" y="440" fill="#C8E6E4" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">Vendor COI, claim packets, and compliance risk visibility.</text>
   </g>
 </svg>

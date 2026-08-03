@@ -6,33 +6,39 @@ import { proofPoints } from "../../content/home";
 
 export function ProofSection() {
   return (
-    <Section className="proof-section">
+    <Section className="proof-section" id="governance">
       <Container size="wide">
         <div className="section-heading section-heading--center" data-reveal="fade-up">
-          <p className="eyebrow">Built for HOA professionals. Designed for review.</p>
-          <h2>Trust built into the workflow.</h2>
-          <p>Instead of unsupported claims, DocuScrit emphasizes the review controls and documentation trail built into the workflow.</p>
+          <p className="eyebrow">Operational trust and governance</p>
+          <h2>Clear records, clear status, and clear decision boundaries.</h2>
+          <p>
+            DocuScrit is designed to make compliance work easier to review without taking judgment away from managers,
+            boards, compliance teams, or legal counsel.
+          </p>
         </div>
 
         <div className="proof-grid">
           <Card className="testimonial-card proof-narrative" data-reveal="from-left">
             <VisualIcon name="reviewComplete" size={30} />
-            <h3>Defensible records start with a reviewed workflow.</h3>
+            <h3>One platform for a more defensible operational record.</h3>
             <p>
-              DocuScrit is designed to help HOA teams prepare clearer packages by connecting records, possible violations,
-              rule references, estimated exposure, and human review status in one place.
+              Vendor certificates, renewal follow-up, compliance gaps, violation history, claim packet materials, and review
+              status can stay connected instead of being scattered across inboxes and spreadsheets.
             </p>
             <ul className="proof-narrative__list">
-              <li>Draft materials are separated from officer-reviewed packages.</li>
-              <li>Supporting records stay attached to the case context.</li>
-              <li>Teams can see what is ready for review before homeowner delivery.</li>
+              <li>Draft, pending, reviewed, and completed statuses remain distinct.</li>
+              <li>Supporting records stay attached to the workflow they inform.</li>
+              <li>Boards and managers keep control of final operational decisions.</li>
             </ul>
           </Card>
 
           <div className="stat-grid">
-            {proofPoints.map((point) => (
+            {proofPoints.map((point, index) => (
               <Card key={point.title} className="stat-card proof-point-card" data-reveal="fade-up">
-                <VisualIcon name="financialRisk" size={24} />
+                <VisualIcon
+                  name={index === 0 ? "fasterResolution" : index === 1 ? "mapping" : index === 2 ? "financialRisk" : "shieldReview"}
+                  size={24}
+                />
                 <strong>{point.title}</strong>
                 <p>{point.detail}</p>
               </Card>

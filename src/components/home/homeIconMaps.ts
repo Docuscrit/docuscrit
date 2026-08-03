@@ -1,17 +1,14 @@
 import type { VisualIconName } from "../brand/VisualElements";
 
 export const featureIconMap: Record<string, VisualIconName> = {
-  "Compliance Gap Scanner": "scanner",
-  "Financial Risk Estimate": "financialRisk",
-  "E-Civil Case Builder": "ecivil",
-  "Rule + Law Reference Mapping": "mapping",
-  "Human Review": "humanReview",
-  "Faster Resolution": "fasterResolution",
+  "Vendor COI Automation": "upload",
+  "Legal Escalation & Claim Packet Workflow": "ecivil",
+  "Compliance Risk Visibility": "financialRisk",
 };
 
 export const resourceIconMap: Record<string, VisualIconName> = {
-  overview: "scanner",
+  overview: "upload",
   workflow: "ecivil",
-  faq: "humanReview",
+  faq: "financialRisk",
   playbook: "mapping",
 };

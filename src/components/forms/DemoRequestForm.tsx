@@ -4,13 +4,12 @@ import { Button } from "../ui/Button";
 import { createDemoMailto } from "../../utils/contact";
 import { submitDemoRequest } from "../../utils/formspree";
 import { cx } from "../../utils/classNames";
+import { productSolutions } from "../../content/products";
 
 const interestOptions = [
-  "Compliance Gap Scanner",
-  "E-Civil Case Builder",
-  "Human review workflow",
-  "Resource library",
-] as const;
+  ...productSolutions.map((product) => product.demoLabel),
+  "Complete DocuScrit platform",
+];
 
 type DemoRequestFormValues = {
   name: string;
@@ -30,7 +29,7 @@ const initialValues: DemoRequestFormValues = {
   role: "",
   communities: "",
   message: "",
-  interests: ["Compliance Gap Scanner", "E-Civil Case Builder"],
+  interests: [],
   gotcha: "",
 };
 
@@ -101,10 +100,8 @@ export function DemoRequestForm({ className, tone = "light", compact = false }: 
     >
       <div className="demo-form__header">
         <span className="demo-form__eyebrow">Request a walkthrough</span>
-        <h2>{compact ? "Book a DocuScrit demo" : "Tell us what you want to review."}</h2>
-        <p>
-          Share a few details and the DocuScrit team will follow up at the email address you provide.
-        </p>
+        <h2>{compact ? "Book a DocuScrit demo" : "Choose the workflow you want to review."}</h2>
+        <p>Share a few details and the DocuScrit team will tailor the walkthrough to your priorities.</p>
       </div>
 
       <label className="demo-form__trap" aria-hidden="true">
@@ -148,7 +145,7 @@ export function DemoRequestForm({ className, tone = "light", compact = false }: 
       </div>
 
       <fieldset className="demo-form__interests" disabled={isSending}>
-        <legend>Areas of interest</legend>
+        <legend>Primary workflow interest</legend>
         <div>
           {interestOptions.map((interest) => (
             <label key={interest}>
@@ -171,7 +168,7 @@ export function DemoRequestForm({ className, tone = "light", compact = false }: 
           value={values.message}
           onChange={updateValue}
           rows={compact ? 4 : 5}
-          placeholder="Tell us what you want to review first, such as records, demand-package drafts, or repeat violations."
+          placeholder="For example: expiring vendor COIs, claim packet preparation, board reporting, or a complete platform walkthrough."
           disabled={isSending}
         />
       </label>

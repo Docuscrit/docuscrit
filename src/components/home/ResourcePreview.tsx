@@ -2,10 +2,10 @@ import { VisualIcon, type VisualIconName } from "../brand/VisualElements";
 import type { ResourcePreview as ResourcePreviewType } from "../../content/home";
 
 const previewContent: Record<ResourcePreviewType, { label: string; icon: VisualIconName; lines: string[] }> = {
-  overview: { label: "Scanner overview", icon: "scanner", lines: ["Scan records", "Flag issues", "Prioritize risk"] },
-  workflow: { label: "Workflow guide", icon: "ecivil", lines: ["Intake", "Draft", "Review"] },
-  faq: { label: "Review FAQ", icon: "humanReview", lines: ["Checks", "Oversight", "Timing"] },
-  playbook: { label: "Violation playbook", icon: "mapping", lines: ["Identify", "Document", "Resolve"] },
+  overview: { label: "Vendor COI overview", icon: "upload", lines: ["Collect", "Monitor", "Renew"] },
+  workflow: { label: "Claim packet guide", icon: "ecivil", lines: ["History", "Packet", "Review"] },
+  faq: { label: "Risk reporting guide", icon: "financialRisk", lines: ["Documents", "Policies", "Actions"] },
+  playbook: { label: "Platform overview", icon: "mapping", lines: ["Vendor", "Escalation", "Visibility"] },
 };
 
 export function ResourcePreview({ preview }: { preview: ResourcePreviewType }) {

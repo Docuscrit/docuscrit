@@ -1,32 +1,36 @@
 import { Check } from "lucide-react";
-import { FeatureIcon } from "../../components/home/FeatureIcon";
 import { FeaturePreview } from "../../components/home/FeaturePreview";
+import { VisualIcon } from "../../components/brand/VisualElements";
 import { Card } from "../../components/ui/Card";
 import { Container } from "../../components/ui/Container";
 import { Section } from "../../components/ui/Section";
-import { platformFeatures } from "../../content/home";
+import { productSolutions } from "../../content/products";
 
 export function PlatformFeaturesSection() {
   return (
-    <Section className="platform-section" id="products">
+    <Section className="platform-section" id="platform">
       <Container size="wide">
         <div className="section-heading section-heading--center" data-reveal="fade-up">
-          <p className="eyebrow">Our platform</p>
-          <h2>Everything you need to protect your community</h2>
-          <p>Purpose-built tools to find gaps, reduce manual prep, and move reviewed work forward.</p>
+          <p className="eyebrow">The DocuScrit platform</p>
+          <h2>One platform. Three connected compliance workflows.</h2>
+          <p>
+            Start with the workflow your team needs today, then keep vendor records, escalation materials, and compliance
+            visibility connected as your operations grow.
+          </p>
         </div>
 
-        <div className="feature-grid">
-          {platformFeatures.map((feature) => (
-            <Card key={feature.title} className="feature-card" data-reveal="fade-up">
+        <div className="feature-grid feature-grid--solutions">
+          {productSolutions.map((product) => (
+            <Card key={product.id} className="feature-card feature-card--solution" data-reveal="fade-up">
               <div className="feature-card__icon">
-                <FeatureIcon title={feature.title} size={28} />
+                <VisualIcon name={product.icon} size={28} />
               </div>
               <div className="feature-card__copy">
-                <h3>{feature.title}</h3>
-                <p>{feature.copy}</p>
+                <span className="solution-card__eyebrow">{product.eyebrow}</span>
+                <h3>{product.name}</h3>
+                <p>{product.summary}</p>
                 <ul>
-                  {feature.bullets.map((bullet) => (
+                  {product.bullets.slice(0, 3).map((bullet) => (
                     <li key={bullet}>
                       <Check size={15} aria-hidden="true" />
                       <span>{bullet}</span>
@@ -35,8 +39,11 @@ export function PlatformFeaturesSection() {
                 </ul>
               </div>
               <div className="feature-card__preview">
-                <FeaturePreview type={feature.preview} />
+                <FeaturePreview type={product.preview} />
               </div>
+              <a className="solution-card__link" href={`/#${product.id}`}>
+                Explore {product.shortName}
+              </a>
             </Card>
           ))}
         </div>

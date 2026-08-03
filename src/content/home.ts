@@ -1,12 +1,6 @@
-export type FeaturePreview = "scan" | "risk" | "package" | "mapping" | "review" | "resolution";
-export type ResourcePreview = "overview" | "workflow" | "faq" | "playbook";
+import { productSolutions } from "./products";
 
-export type PlatformFeature = {
-  title: string;
-  copy: string;
-  bullets: string[];
-  preview: FeaturePreview;
-};
+export type ResourcePreview = "overview" | "workflow" | "faq" | "playbook";
 
 export type ResourceCard = {
   title: string;
@@ -26,130 +20,115 @@ export type FooterColumn = {
   links: FooterLink[];
 };
 
-export const platformFeatures: PlatformFeature[] = [
+export const escalationSteps = [
   {
-    title: "Compliance Gap Scanner",
-    copy: "Upload recent records and uncover possible violations, missing documentation, and control gaps.",
-    bullets: ["Scan bylaws, policies, and governing docs", "Identify issues before they escalate", "See estimated exposure with supporting context"],
-    preview: "scan",
+    step: "01",
+    title: "Assemble the history",
+    copy: "Bring violation records, notices, governing documents, evidence, and cost information into one structured workspace.",
   },
   {
-    title: "Financial Risk Estimate",
-    copy: "Estimate potential exposure so your team can prioritize what needs review first.",
-    bullets: ["Scenario-based exposure estimates", "Factor in fines, fees, and administrative costs", "Visualize total potential impact"],
-    preview: "risk",
+    step: "02",
+    title: "Prepare the claim packet",
+    copy: "DocuScrit organizes the supporting record and highlights missing context before the packet moves forward.",
   },
   {
-    title: "E-Civil Case Builder",
-    copy: "Create draft demand-package materials with homeowner details, violation history, rule references, and cost estimates for review.",
-    bullets: ["Auto-fill homeowner and violation details", "Compile rule references and cost estimates", "Route packages for compliance-officer review"],
-    preview: "package",
-  },
-  {
-    title: "Rule + Law Reference Mapping",
-    copy: "Organize community rules alongside relevant statute and policy references for easier review.",
-    bullets: ["Cross-reference governing documents", "Highlight alignment questions for review", "Keep package references organized"],
-    preview: "mapping",
-  },
-  {
-    title: "Human Review",
-    copy: "A DocuScrit Compliance Officer reviews homeowner-facing case packages before delivery.",
-    bullets: ["Real people. Real operational context.", "Case-by-case documentation review", "Reduce missing context and review gaps"],
-    preview: "review",
-  },
-  {
-    title: "Faster Resolution",
-    copy: "Move from issue discovery to reviewed next steps with less manual coordination.",
-    bullets: ["Guided workflows", "Centralized document management", "Track progress with clearer status"],
-    preview: "resolution",
+    step: "03",
+    title: "Review before escalation",
+    copy: "A compliance review checks documentation readiness before the packet is handed to legal counsel or a court workflow.",
   },
 ] as const;
 
-export const reviewSteps = [
-  { step: "01", title: "Upload records", copy: "Upload documents in minutes. DocuScrit organizes records into a secure case workspace." },
-  { step: "02", title: "AI scans and prepares", copy: "The system scans for possible violations, estimates exposure, and prepares draft package materials." },
-  { step: "03", title: "Officer reviews", copy: "A DocuScrit Compliance Officer reviews documentation, context, and fairness before delivery." },
-] as const;
-
-export const reviewPillars = [
-  { title: "Human review", copy: "Before homeowner delivery", detail: "Officer review helps catch context, fairness, and documentation gaps before a case moves forward." },
-  { title: "HOA context", copy: "Not just software", detail: "The review workflow is built around HOA operations, records, and repeat-violation processes." },
-  { title: "Review first", copy: "Details checked before action", detail: "Your team gets a cleaner package to review, document, and decide on with confidence." },
+export const escalationPillars = [
+  {
+    title: "Connected history",
+    copy: "Records stay together",
+    detail: "Violation history, notices, rule references, evidence, and estimated costs remain connected to the same packet.",
+  },
+  {
+    title: "Compliance checkpoint",
+    copy: "Reviewed before escalation",
+    detail: "The workflow separates draft materials from compliance-reviewed packets before a legal handoff occurs.",
+  },
+  {
+    title: "Clear legal handoff",
+    copy: "Counsel gets organized context",
+    detail: "Legal teams receive a cleaner, structured packet while retaining their independent judgment and legal analysis.",
+  },
 ] as const;
 
 export const proofPoints = [
   {
-    title: "Human-reviewed package flow",
-    detail: "Homeowner-facing materials route through a DocuScrit Compliance Officer before they are sent.",
+    title: "Clear workflow status",
+    detail: "Teams can distinguish pending documents, renewal follow-up, draft packets, review checkpoints, and completed work.",
   },
   {
     title: "Organized evidence trail",
-    detail: "Violation history, records, rule references, and cost estimates stay connected in one package.",
+    detail: "Vendor records, compliance documents, notices, rule references, and supporting context stay connected.",
   },
   {
-    title: "Clear review status",
-    detail: "Teams can distinguish drafts, review-ready cases, and officer-reviewed materials at a glance.",
+    title: "Board-ready visibility",
+    detail: "Reports help managers and boards see which documents, policies, notices, or workflows may need attention.",
   },
   {
-    title: "Defensible documentation",
-    detail: "The workflow is designed to help teams explain what was found, what was reviewed, and what comes next.",
+    title: "Decision support, not replacement",
+    detail: "DocuScrit supports operational review while final business, compliance, and legal decisions remain with your team and counsel.",
   },
 ] as const;
 
 export const resourceCards: ResourceCard[] = [
   {
-    title: "Compliance Gap Scanner overview",
-    copy: "Preview how scans help surface possible violations and documentation gaps.",
+    title: "Vendor COI automation overview",
+    copy: "See how vendor records, certificate uploads, expirations, reminders, and risk flags can work in one workflow.",
     cta: "Open overview",
-    href: "/resources#scanner-overview",
+    href: "/resources#vendor-coi-overview",
     preview: "overview",
   },
   {
-    title: "E-Civil Case Builder guide",
-    copy: "Walk through draft package creation, estimates, case status, and review routing.",
+    title: "Claim packet workflow guide",
+    copy: "Walk through the path from violation history to a compliance-reviewed packet before legal escalation.",
     cta: "Open guide",
-    href: "/resources#ecivil-guide",
+    href: "/resources#claim-packet-workflow",
     preview: "workflow",
   },
   {
-    title: "Human review FAQ",
-    copy: "Learn what officer review checks before homeowner-facing materials move forward.",
-    cta: "Open FAQ",
-    href: "/resources#human-review-faq",
+    title: "Compliance risk reporting guide",
+    copy: "Learn how board-ready reporting can surface document, policy, notice, and workflow gaps for review.",
+    cta: "Open guide",
+    href: "/resources#risk-reporting-guide",
     preview: "faq",
   },
   {
-    title: "HOA Violation Playbook",
-    copy: "A practical guide for identifying, documenting, and resolving violations.",
-    cta: "Open playbook",
-    href: "/resources#violation-playbook",
+    title: "DocuScrit platform overview",
+    copy: "Understand how vendor compliance, legal escalation, and risk visibility fit under one platform.",
+    cta: "Open platform guide",
+    href: "/resources#platform-overview",
     preview: "playbook",
   },
 ] as const;
 
 export const footerColumns: FooterColumn[] = [
   {
-    title: "About",
+    title: "Platform",
     links: [
-      { label: "Our mission", href: "/#about" },
-      { label: "Why DocuScrit", href: "/#products" },
-      { label: "Human review", href: "/#human-review" },
+      { label: "Platform overview", href: "/#platform" },
+      ...productSolutions.map((product) => ({ label: product.name, href: `/#${product.id}` })),
     ],
   },
   {
-    title: "Products",
+    title: "For teams",
     links: [
-      { label: "Compliance Gap Scanner", href: "/#products" },
-      { label: "E-Civil Case Builder", href: "/#products" },
-      { label: "Request Demo", href: "/demo" },
+      { label: "Property managers", href: "/#platform" },
+      { label: "HOA boards", href: "/#risk-visibility" },
+      { label: "Compliance teams", href: "/#legal-escalation" },
+      { label: "Vendor coordinators", href: "/#vendor-coi" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Resource center", href: "/resources" },
-      { label: "Human review FAQ", href: "/resources#human-review-faq" },
-      { label: "Guide requests", href: "/resources#guide-requests" },
+      { label: "Claim packet guide", href: "/resources#claim-packet-workflow" },
+      { label: "Risk reporting guide", href: "/resources#risk-reporting-guide" },
     ],
   },
   {
@@ -168,7 +147,7 @@ export const footerLegal: FooterLink[] = [
 ];
 
 export const finalCtaBenefits = [
-  "Reduce risk with clearer records",
-  "Save time on manual preparation",
-  "Protect your community with reviewed packages",
+  "Automate vendor COI follow-up",
+  "Prepare clearer claim packets",
+  "Give boards better risk visibility",
 ] as const;

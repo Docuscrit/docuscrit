@@ -1,6 +1,6 @@
 export { FinalCtaSection } from "./FinalCtaSection";
 export { HeroSection } from "./HeroSection";
-export { HumanReviewSection } from "./HumanReviewSection";
+export { LegalEscalationSection } from "./LegalEscalationSection";
 export { PlatformFeaturesSection } from "./PlatformFeaturesSection";
 export { ProductSpotlightSection } from "./ProductSpotlightSection";
 export { ProofSection } from "./ProofSection";

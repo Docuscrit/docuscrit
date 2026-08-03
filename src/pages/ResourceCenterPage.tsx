@@ -8,10 +8,10 @@ import { resourceDetails } from "../content/resources";
 import { createResourceMailto } from "../utils/contact";
 
 const iconByResourceId: Record<string, VisualIconName> = {
-  "scanner-overview": "scanner",
-  "ecivil-guide": "ecivil",
-  "human-review-faq": "humanReview",
-  "violation-playbook": "mapping",
+  "vendor-coi-overview": "upload",
+  "claim-packet-workflow": "ecivil",
+  "risk-reporting-guide": "financialRisk",
+  "platform-overview": "mapping",
 };
 
 export function ResourceCenterPage() {
@@ -21,12 +21,12 @@ export function ResourceCenterPage() {
         <Container size="wide">
           <div className="subpage-hero__copy subpage-hero__copy--center">
             <p className="eyebrow">Resource center</p>
-            <h1>Practical DocuScrit guides for HOA compliance teams.</h1>
+            <h1>Practical guides for the DocuScrit compliance platform.</h1>
             <p>
-              Browse product explainers, workflow guides, and review-focused resources for HOA compliance teams.
+              Browse product explainers and workflow guides for vendor compliance, legal escalation, and board-ready risk visibility.
             </p>
             <div className="subpage-hero__actions subpage-hero__actions--center">
-              <Button href="#scanner-overview">
+              <Button href="#vendor-coi-overview">
                 Browse resources
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>

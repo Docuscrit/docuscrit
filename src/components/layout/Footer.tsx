@@ -15,10 +15,10 @@ export function Footer() {
               <a className="site-logo site-logo--footer" href="/#about" aria-label="DocuScrit home">
                 <span className="site-logo__wordmark">DocuScrit</span>
               </a>
-              <p className="site-footer__tagline">Compliance records you can defend.</p>
+              <p className="site-footer__tagline">Compliance workflows you can see and manage.</p>
               <p>
-                DocuScrit helps HOA management teams find compliance gaps, estimate exposure, and prepare reviewed packages
-                with human review built in.
+                DocuScrit helps HOA and property-management teams automate vendor COI tracking, prepare reviewed claim packets,
+                and give boards clearer compliance risk visibility.
               </p>
               <div className="site-footer__contact">
                 <a href={`mailto:${CONTACT_EMAIL}`}>

@@ -156,8 +156,8 @@ export function OfficerReviewedSignal({ className }: { className?: string }) {
         <VisualIcon name="shieldReview" size={34} />
       </div>
       <div>
-        <strong>Compliance Officer Reviewed</strong>
-        <span>Case package reviewed by a DocuScrit Compliance Officer.</span>
+        <strong>Compliance Review Complete</strong>
+        <span>Documentation checked before legal escalation.</span>
       </div>
     </div>
   );
@@ -170,8 +170,8 @@ export function ReadyForReviewSignal({ className }: { className?: string }) {
         <VisualIcon name="reviewComplete" size={32} />
       </div>
       <div>
-        <strong>Ready for Review</strong>
-        <span>Prepared and queued for human review.</span>
+        <strong>Claim Packet Ready</strong>
+        <span>History and supporting records organized for review.</span>
       </div>
     </div>
   );
@@ -184,8 +184,8 @@ export function HumanReviewedSignal({ className }: { className?: string }) {
         <VisualIcon name="humanReview" size={32} />
       </div>
       <div>
-        <strong>Human Reviewed</strong>
-        <span>Reviewed for documentation, context, and readiness.</span>
+        <strong>Legal Handoff Ready</strong>
+        <span>Structured for counsel while preserving independent legal judgment.</span>
       </div>
     </div>
   );
@@ -262,9 +262,9 @@ export function ComplianceRecordSeal({ className }: { className?: string }) {
         <VisualIcon name="reviewComplete" size={34} />
       </div>
       <div>
-        <span>Human review</span>
-        <strong>Officer Reviewed</strong>
-        <small>Queued for reviewed next steps</small>
+        <span>Compliance review</span>
+        <strong>Escalation Checkpoint</strong>
+        <small>Reviewed before legal handoff</small>
       </div>
     </div>
   );

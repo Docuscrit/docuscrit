@@ -1,6 +1,12 @@
 # DocuScrit Official Site
 
-Production-ready Vite + React marketing site for DocuScrit.
+Production-ready Vite + React marketing site for the DocuScrit compliance workflow platform.
+
+The homepage currently positions DocuScrit as the umbrella brand for:
+
+- Vendor COI Automation
+- Legal Escalation & Claim Packet Workflow
+- Compliance Risk Visibility
 
 ## Commands
 
@@ -45,6 +51,12 @@ Cloudflare Pages settings:
 - `public/site.webmanifest`
 - `public/brand/docuscrit-og-card.png`
 - `public/brand/docuscrit-og-card.svg`
+
+Product positioning and shared solution content are defined in:
+
+```txt
+src/content/products.ts
+```
 
 Route metadata is defined in:
 

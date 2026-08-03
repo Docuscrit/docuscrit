@@ -1,7 +1,7 @@
 {
   "name": "DocuScrit",
   "short_name": "DocuScrit",
-  "description": "HOA compliance review platform with human review built in.",
+  "description": "Compliance workflow platform for vendor COI automation, claim packet preparation, and compliance risk visibility.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fbf2e3",

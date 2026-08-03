@@ -1,123 +1,138 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Link2 } from "lucide-react";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
-import {
-  ComplianceRecordSeal,
-  DocumentUploadWidget,
-} from "../brand/VisualElements";
+import { ComplianceRecordSeal, RiskMeterWidget } from "../brand/VisualElements";
+import type { ProductSolution } from "../../content/products";
 
 type ProductPanelProps = {
-  title: string;
-  copy: string;
-  bullets: string[];
-  preview: "scanner" | "ecivil";
+  product: ProductSolution;
+  index: number;
 };
 
-export function ProductPanel({ title, copy, bullets, preview }: ProductPanelProps) {
+export function ProductPanel({ product, index }: ProductPanelProps) {
   return (
     <div className="product-panel">
       <div className="product-panel__copy">
-        <Badge tone="cream">{preview === "scanner" ? "01" : "02"}</Badge>
-        <h3>{title}</h3>
-        <p>{copy}</p>
+        <Badge tone="cream">{String(index + 1).padStart(2, "0")}</Badge>
+        <span className="product-panel__eyebrow">{product.eyebrow}</span>
+        <h3>{product.name}</h3>
+        <p>{product.summary}</p>
         <ul>
-          {bullets.map((bullet) => (
+          {product.bullets.map((bullet) => (
             <li key={bullet}>
               <Check size={15} aria-hidden="true" />
               <span>{bullet}</span>
             </li>
           ))}
         </ul>
-        <Button href="/demo" variant="secondary">
-          Request Demo
+        <p className="product-panel__outcome">{product.outcome}</p>
+        <Button href="/demo#demo-form" variant="secondary">
+          Request a workflow demo
           <ArrowRight size={18} aria-hidden="true" />
         </Button>
       </div>
-      <div className="product-panel__visual">
-        {preview === "scanner" ? <ScannerWorkbench /> : <ECivilWorkbench />}
+      <div className="product-panel__visual" aria-hidden="true">
+        {product.preview === "vendorCoi" ? <VendorCoiWorkbench /> : null}
+        {product.preview === "legalEscalation" ? <LegalEscalationWorkbench /> : null}
+        {product.preview === "riskVisibility" ? <RiskVisibilityWorkbench /> : null}
       </div>
     </div>
   );
 }
 
-function ScannerWorkbench() {
+function VendorCoiWorkbench() {
   return (
     <div className="product-workbench">
       <div className="product-workbench__top">
-        <span>Compliance Gap Scanner</span>
-        <Badge tone="teal">Scan complete</Badge>
+        <span>Vendor COI Automation</span>
+        <Badge tone="teal">Monitoring active</Badge>
       </div>
-      <div className="product-workbench__grid">
-        <DocumentUploadWidget className="brand-widget--workbench" />
-        <div className="mini-panel mini-panel--scan">
+      <div className="product-workbench__grid product-workbench__grid--vendor">
+        <div className="mini-panel mini-panel--mapping">
           <div className="mini-panel__head">
-            <span>Issue Severity</span>
-            <Badge tone="teal">23</Badge>
+            <span>Vendor Portfolio</span>
+            <Badge tone="cream">147 vendors</Badge>
           </div>
-          <div className="donut-chart donut-chart--small">
-            <div className="donut-chart__ring">
-              <div className="donut-chart__center">
-                <strong>23</strong>
-                <span>Issues</span>
+          <div className="mini-mapping-list">
+            {[
+              ["COI current", "128"],
+              ["Expiring in 30 days", "14"],
+              ["Coverage gap", "5"],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+        <div className="mini-panel mini-panel--package">
+          <div className="mini-panel__head">
+            <span>Vendor Upload Link</span>
+            <Badge tone="blue">Ready</Badge>
+          </div>
+          <div className="vendor-upload-link">
+            <Link2 size={20} aria-hidden="true" />
+            <strong>Secure vendor link</strong>
+            <span>Collect certificates without email attachments.</span>
           </div>
         </div>
         <div className="mini-panel mini-panel--risk">
           <div className="mini-panel__head">
-            <span>Financial Exposure</span>
-            <strong>$18,450</strong>
+            <span>Renewal Follow-up</span>
+            <strong>14 active</strong>
           </div>
           <ul className="mini-list mini-list--stacked">
-            <li>
-              <span>Fines & penalties</span>
-              <strong>$11,250</strong>
-            </li>
-            <li>
-              <span>Review costs</span>
-              <strong>$5,300</strong>
-            </li>
-            <li>
-              <span>Other costs</span>
-              <strong>$1,900</strong>
-            </li>
+            <li><span>First reminder</span><strong>8</strong></li>
+            <li><span>Second reminder</span><strong>4</strong></li>
+            <li><span>Manager review</span><strong>2</strong></li>
           </ul>
+        </div>
+        <div className="mini-panel mini-panel--review">
+          <div className="mini-panel__head">
+            <span>Vendor Risk Flags</span>
+            <Badge tone="cream">5 open</Badge>
+          </div>
+          <div className="mini-mapping-list mini-mapping-list--alerts">
+            <div><span>Expired general liability</span><strong>High</strong></div>
+            <div><span>Missing endorsement</span><strong>Review</strong></div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function ECivilWorkbench() {
+function LegalEscalationWorkbench() {
   return (
     <div className="product-workbench">
       <div className="product-workbench__top">
-        <span>E-Civil Case Builder</span>
-        <Badge tone="teal">Review-ready</Badge>
+        <span>Legal Escalation &amp; Claim Packet</span>
+        <Badge tone="teal">Review checkpoint</Badge>
       </div>
       <div className="product-workbench__grid product-workbench__grid--ecivil">
         <div className="mini-panel mini-panel--package">
           <div className="mini-panel__head">
-            <span>Homeowner</span>
-            <Badge tone="blue">Homeowner record</Badge>
+            <span>Property Record</span>
+            <Badge tone="blue">Connected</Badge>
           </div>
           <div className="mini-package-card">
-            <strong>Address</strong>
-            <span>Property compliance record</span>
-            <strong>Lot</strong>
-            <span>15</span>
+            <strong>Violation history</strong>
+            <span>7 entries</span>
+            <strong>Notices</strong>
+            <span>3 attached</span>
           </div>
         </div>
         <div className="mini-panel mini-panel--mapping">
           <div className="mini-panel__head">
-            <span>Repeated Violations</span>
-            <Badge tone="cream">3 in 12 months</Badge>
+            <span>Supporting Context</span>
+            <Badge tone="cream">Organized</Badge>
           </div>
           <div className="mini-mapping-list mini-mapping-list--alerts">
             {[
-              ["Exterior Maintenance", "First notice"],
-              ["Trash Storage", "Second notice"],
-              ["Landscaping", "Current review"],
+              ["Governing documents", "Referenced"],
+              ["Photo evidence", "Attached"],
+              ["Notice timeline", "Complete"],
             ].map(([label, code]) => (
               <div key={label}>
                 <span>{label}</span>
@@ -128,30 +143,76 @@ function ECivilWorkbench() {
         </div>
         <div className="mini-panel mini-panel--risk">
           <div className="mini-panel__head">
-            <span>Estimated Costs</span>
+            <span>Potential Exposure</span>
             <strong>$2,450.00</strong>
           </div>
           <ul className="mini-list mini-list--stacked">
-            <li>
-              <span>Review costs</span>
-              <strong>$1,650.00</strong>
-            </li>
-            <li>
-              <span>Filing & service</span>
-              <strong>$450.00</strong>
-            </li>
-            <li>
-              <span>Other costs</span>
-              <strong>$350.00</strong>
-            </li>
+            <li><span>Administrative costs</span><strong>$1,650.00</strong></li>
+            <li><span>Filing and service</span><strong>$450.00</strong></li>
+            <li><span>Other estimated costs</span><strong>$350.00</strong></li>
           </ul>
         </div>
         <div className="mini-panel mini-panel--review mini-panel--signature">
           <div className="mini-panel__head">
-            <span>Case Status</span>
-            <Badge tone="teal">Ready for Review</Badge>
+            <span>Packet Status</span>
+            <Badge tone="teal">Compliance review</Badge>
           </div>
           <ComplianceRecordSeal className="compliance-record-seal--compact" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RiskVisibilityWorkbench() {
+  return (
+    <div className="product-workbench">
+      <div className="product-workbench__top">
+        <span>Compliance Risk Visibility</span>
+        <Badge tone="teal">Board report ready</Badge>
+      </div>
+      <div className="product-workbench__grid product-workbench__grid--risk-visibility">
+        <RiskMeterWidget className="brand-widget--workbench" />
+        <div className="mini-panel mini-panel--mapping">
+          <div className="mini-panel__head">
+            <span>Attention Areas</span>
+            <Badge tone="cream">23 items</Badge>
+          </div>
+          <div className="mini-mapping-list">
+            {[
+              ["Required documents", "8 gaps"],
+              ["Policy review", "5 items"],
+              ["Notice workflow", "10 items"],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <span>{label}</span>
+                <strong>{value}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="mini-panel mini-panel--risk">
+          <div className="mini-panel__head">
+            <span>Portfolio Summary</span>
+            <strong>12 communities</strong>
+          </div>
+          <ul className="mini-list mini-list--stacked">
+            <li><span>Needs immediate review</span><strong>3</strong></li>
+            <li><span>Follow-up scheduled</span><strong>4</strong></li>
+            <li><span>On track</span><strong>5</strong></li>
+          </ul>
+        </div>
+        <div className="mini-panel mini-panel--package">
+          <div className="mini-panel__head">
+            <span>Board Report</span>
+            <Badge tone="blue">Ready</Badge>
+          </div>
+          <div className="mini-package-card">
+            <strong>Reporting period</strong>
+            <span>Current quarter</span>
+            <strong>Prioritized actions</strong>
+            <span>Included</span>
+          </div>
         </div>
       </div>
     </div>

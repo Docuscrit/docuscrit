@@ -1,95 +1,55 @@
 import { Badge } from "../ui/Badge";
-import {
-  ComplianceScoreWidget,
-  ReadyForReviewSignal,
-  RiskMeterWidget,
-} from "../brand/VisualElements";
-import type { FeaturePreview as FeaturePreviewType } from "../../content/home";
+import { ComplianceScoreWidget, RiskMeterWidget } from "../brand/VisualElements";
+import type { ProductPreview } from "../../content/products";
 
-export function FeaturePreview({ type }: { type: FeaturePreviewType }) {
-  if (type === "scan") {
+export function FeaturePreview({ type }: { type: ProductPreview }) {
+  if (type === "vendorCoi") {
     return (
-      <div className="mini-panel mini-panel--scan">
+      <div className="mini-panel mini-panel--vendor" aria-hidden="true">
         <div className="mini-panel__head">
-          <span>Scan Results</span>
-          <Badge tone="teal">23</Badge>
-        </div>
-        <div className="donut-chart">
-          <div className="donut-chart__ring">
-            <div className="donut-chart__center">
-              <strong>23</strong>
-              <span>Issues</span>
-            </div>
-          </div>
-        </div>
-        <div className="mini-score-list">
-          <span><i className="dot dot--high" />High Risk 8</span>
-          <span><i className="dot dot--medium" />Medium Risk 9</span>
-          <span><i className="dot dot--low" />Low Risk 6</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "risk") {
-    return <RiskMeterWidget className="brand-widget--compact" />;
-  }
-
-  if (type === "package") {
-    return (
-      <div className="mini-panel mini-panel--package">
-        <ReadyForReviewSignal className="trust-signal--compact" />
-        <div className="mini-package-card">
-          <strong>Prepared for</strong>
-          <span>Property compliance record</span>
-          <strong>Violations included</strong>
-          <span>7</span>
-          <strong>Estimated costs</strong>
-          <span>$2,450.00</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "mapping") {
-    return (
-      <div className="mini-panel mini-panel--mapping">
-        <div className="mini-panel__head">
-          <span>Rule Mapping</span>
-          <Badge tone="blue">Current</Badge>
+          <span>Vendor COI Status</span>
+          <Badge tone="teal">91% current</Badge>
         </div>
         <div className="mini-mapping-list">
           {[
-            ["Parking Policy", "Policy Ref. 4.7"],
-            ["Rental Restrictions", "CC&Rs Sec. 5.2"],
-            ["Architectural Guidelines", "Rule Ref. 7.1"],
-          ].map(([label, code]) => (
+            ["Current", "128 vendors"],
+            ["Expiring soon", "14 vendors"],
+            ["Missing coverage", "5 vendors"],
+          ].map(([label, value]) => (
             <div key={label}>
               <span>{label}</span>
-              <strong>{code}</strong>
+              <strong>{value}</strong>
             </div>
           ))}
+        </div>
+        <span className="mini-panel__note">Renewal reminders active</span>
+      </div>
+    );
+  }
+
+  if (type === "legalEscalation") {
+    return (
+      <div className="mini-panel mini-panel--package" aria-hidden="true">
+        <div className="mini-panel__head">
+          <span>Claim Packet</span>
+          <Badge tone="blue">Compliance review</Badge>
+        </div>
+        <div className="mini-package-card">
+          <strong>Violation history</strong>
+          <span>Attached</span>
+          <strong>Notices and evidence</strong>
+          <span>Organized</span>
+          <strong>Escalation status</strong>
+          <span>Pending review</span>
         </div>
       </div>
     );
   }
 
-  if (type === "review") {
-    return <ComplianceScoreWidget className="brand-widget--compact" />;
-  }
-
   return (
-    <div className="mini-panel mini-panel--resolution">
-      <div className="mini-panel__head">
-        <span>Resolution Tracker</span>
-        <Badge tone="teal">87% Resolved</Badge>
-      </div>
-      <div className="mini-sparkline" aria-hidden="true">
-        <svg viewBox="0 0 120 60" role="presentation" focusable="false">
-          <polyline points="0,50 15,46 30,40 45,42 60,32 75,28 90,20 105,16 120,6" />
-        </svg>
-      </div>
-      <span className="mini-panel__note">22% vs last month</span>
+    <div className="feature-preview-stack" aria-hidden="true">
+      <RiskMeterWidget className="brand-widget--compact" />
+      <ComplianceScoreWidget className="brand-widget--compact feature-preview-stack__secondary" />
     </div>
   );
 }

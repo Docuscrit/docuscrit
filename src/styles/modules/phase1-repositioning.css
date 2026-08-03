@@ -1,0 +1,165 @@
+/* Phase 1 positioning update: umbrella platform, three solution families, and legal-review boundaries. */
+.site-nav {
+  gap: clamp(0.8rem, 1.6vw, 1.55rem);
+}
+
+.site-nav__link {
+  font-size: clamp(0.75rem, 0.82vw, 0.86rem);
+}
+
+.home-hero__eyebrow {
+  margin-bottom: -0.35rem;
+  color: var(--color-teal-800);
+}
+
+.home-hero h1 {
+  width: auto;
+  max-width: 15ch;
+  font-size: clamp(3rem, 4.25vw, 4.45rem);
+}
+
+.home-hero h1 .home-hero__headline-line {
+  white-space: normal;
+}
+
+.home-hero__promise {
+  max-width: 39rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(0, 113, 116, 0.14);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.home-hero__trustline {
+  display: block;
+  max-width: 42rem;
+  line-height: 1.55;
+}
+
+.feature-grid--solutions .feature-card {
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 26rem;
+}
+
+.solution-card__eyebrow,
+.product-panel__eyebrow {
+  color: var(--color-teal-700);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.solution-card__link {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--color-teal-800);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.solution-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.feature-preview-stack {
+  height: 100%;
+}
+
+.feature-preview-stack__secondary {
+  display: none;
+}
+
+.product-card {
+  scroll-margin-top: calc(var(--header-height) + 1.25rem);
+}
+
+.product-panel__copy .product-panel__outcome {
+  padding: 0.75rem 0.85rem;
+  border-left: 3px solid var(--color-teal-600);
+  color: var(--color-ink-soft);
+  background: rgba(224, 247, 243, 0.42);
+  font-weight: 700;
+}
+
+.product-workbench__grid--vendor,
+.product-workbench__grid--risk-visibility {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.vendor-upload-link {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.35rem;
+  min-height: 7rem;
+  padding: 0.75rem;
+  border: 1px dashed rgba(0, 113, 116, 0.28);
+  border-radius: 0.85rem;
+  color: var(--color-teal-800);
+  background: rgba(224, 247, 243, 0.42);
+}
+
+.vendor-upload-link strong {
+  color: var(--color-ink);
+  font-size: 0.82rem;
+}
+
+.vendor-upload-link span {
+  color: var(--color-ink-muted);
+  font-size: 0.73rem;
+  line-height: 1.4;
+}
+
+.review-disclaimer {
+  max-width: 58rem;
+  margin: 1.2rem auto 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.9rem;
+  color: rgba(255, 255, 255, 0.68);
+  background: rgba(2, 13, 28, 0.24);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (max-width: 1180px) {
+  .home-hero h1 {
+    max-width: 14ch;
+  }
+
+  .home-hero__trustline {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 920px) {
+  .product-card {
+    scroll-margin-top: calc(var(--header-height-mobile) + 1.25rem);
+  }
+}
+
+@media (max-width: 680px) {
+  .home-hero h1 {
+    width: auto;
+    max-width: 11ch;
+  }
+
+  .home-hero__promise,
+  .home-hero__trustline {
+    text-align: left;
+  }
+
+  .feature-grid--solutions .feature-card {
+    min-height: 0;
+  }
+
+  .product-workbench__grid--vendor,
+  .product-workbench__grid--risk-visibility {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}

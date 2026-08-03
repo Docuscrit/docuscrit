@@ -10,11 +10,11 @@ export function FinalCtaSection() {
       <Container size="wide">
         <div className="final-cta__card" data-reveal="fade-up">
           <div className="final-cta__content">
-            <p className="eyebrow">Ready when your compliance team is.</p>
-            <h2>Ready to simplify compliance and protect your community?</h2>
+            <p className="eyebrow">Start with the workflow that matters most.</p>
+            <h2>See how the DocuScrit platform fits your compliance operation.</h2>
             <p>
-              See how DocuScrit helps HOA teams find possible violations, estimate exposure, and prepare reviewed packages
-              with human review built in.
+              Request a walkthrough focused on vendor COI automation, legal escalation and claim packets, compliance risk
+              visibility, or the complete platform.
             </p>
             <div className="final-cta__benefits">
               {finalCtaBenefits.map((benefit) => (

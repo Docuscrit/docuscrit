@@ -1,9 +1,9 @@
 import {
   BadgeCheck,
   Bell,
+  FileStack,
   ChevronRight,
   FileCheck2,
-  FileStack,
   ScanSearch,
   Settings,
 } from "lucide-react";
@@ -16,23 +16,23 @@ export function DashboardPreview() {
         <div className="dashboard-brandmark" />
         <div className="dashboard-nav is-active">
           <ScanSearch size={16} />
-          <span>Dashboard</span>
+          <span>Overview</span>
         </div>
         <div className="dashboard-nav">
           <FileStack size={16} />
-          <span>Scans</span>
+          <span>Vendors &amp; COIs</span>
         </div>
         <div className="dashboard-nav">
           <BadgeCheck size={16} />
-          <span>Case Builder</span>
+          <span>Claim Packets</span>
+        </div>
+        <div className="dashboard-nav">
+          <Bell size={16} />
+          <span>Risk Reports</span>
         </div>
         <div className="dashboard-nav">
           <FileCheck2 size={16} />
           <span>Documents</span>
-        </div>
-        <div className="dashboard-nav">
-          <Bell size={16} />
-          <span>Reports</span>
         </div>
         <div className="dashboard-nav">
           <Settings size={16} />
@@ -43,7 +43,7 @@ export function DashboardPreview() {
       <div className="dashboard-shell__content">
         <div className="dashboard-shell__top">
           <div>
-            <p className="dashboard-eyebrow">Example workspace</p>
+            <p className="dashboard-eyebrow">DocuScrit platform</p>
             <p className="dashboard-subtitle">Demo Community Portfolio</p>
           </div>
           <div className="dashboard-avatar-row">
@@ -56,40 +56,40 @@ export function DashboardPreview() {
         <div className="dashboard-overview">
           <div className="dashboard-overview__header">
             <h3>Compliance Overview</h3>
-            <Badge tone="cream">Last 90 days</Badge>
+            <Badge tone="cream">Current portfolio</Badge>
           </div>
           <div className="dashboard-kpis">
             <div className="dashboard-kpi">
-              <span>Potential Violations</span>
-              <strong>23</strong>
-              <small>+8 vs previous 90 days</small>
+              <span>Vendor COIs Current</span>
+              <strong>91%</strong>
+              <small>14 renewals due soon</small>
             </div>
             <div className="dashboard-kpi dashboard-kpi--accent">
-              <span>Estimated Financial Risk</span>
-              <strong>$18,450</strong>
-              <small>+$6,250 vs previous 90 days</small>
+              <span>Items Needing Attention</span>
+              <strong>23</strong>
+              <small>Across documents and workflows</small>
             </div>
             <div className="dashboard-kpi">
-              <span>Open Cases</span>
+              <span>Claim Packets</span>
               <strong>7</strong>
-              <small>3 in review</small>
+              <small>3 awaiting compliance review</small>
             </div>
           </div>
         </div>
 
         <div className="dashboard-scan-list">
           <div className="dashboard-overview__header">
-            <h3>Recent Scans</h3>
+            <h3>Recent Workflow Activity</h3>
           </div>
           <div className="dashboard-scan-list__rows">
             {[
-              ["Current 90-day review", "Complete", "23 issues found"],
-              ["Prior review cycle", "Complete", "12 issues found"],
-              ["Earlier review cycle", "Complete", "8 issues found"],
-            ].map(([range, status, result]) => (
-              <div key={range} className="dashboard-scan-row">
-                <span>{range}</span>
-                <Badge tone="teal">{status}</Badge>
+              ["Vendor renewal reminders", "In progress", "14 vendors"],
+              ["Claim packet review queue", "Review", "3 packets"],
+              ["Board compliance report", "Ready", "23 items"],
+            ].map(([activity, status, result]) => (
+              <div key={activity} className="dashboard-scan-row">
+                <span>{activity}</span>
+                <Badge tone={status === "Review" ? "blue" : "teal"}>{status}</Badge>
                 <span>{result}</span>
                 <ChevronRight size={16} aria-hidden="true" />
               </div>

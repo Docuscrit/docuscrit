@@ -77,7 +77,7 @@ const legalContent: Record<LegalPageKind, { title: string; eyebrow: string; intr
         title: "No legal advice",
         copy: [
           "DocuScrit materials and website content are not legal advice. HOA teams should rely on qualified counsel or appropriate professionals for legal decisions and jurisdiction-specific requirements.",
-          "References to rules, statutes, documents, costs, or demand-package workflows are intended to support organization and review, not to guarantee a legal outcome.",
+          "References to rules, statutes, documents, costs, claim packets, or compliance-review workflows are intended to support organization and review, not to guarantee a legal outcome or replace counsel.",
         ],
       },
       {
@@ -105,7 +105,7 @@ export function LegalPage({ kind }: { kind: LegalPageKind }) {
             <p className="eyebrow">{page.eyebrow}</p>
             <h1>{page.title}</h1>
             <p>{page.intro}</p>
-            <div className="legal-page__meta">Last updated: June 7, 2026</div>
+            <div className="legal-page__meta">Last updated: August 3, 2026</div>
           </div>
         </Container>
       </Section>
