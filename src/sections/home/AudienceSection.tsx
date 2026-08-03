@@ -28,7 +28,14 @@ export function AudienceSection() {
                 {role.productIds.slice(0, 2).map((productId) => {
                   const product = productById[productId];
                   return (
-                    <a href={product.path} key={product.id}>
+                    <a
+                      href={product.path}
+                      key={product.id}
+                      data-analytics-event="product_cta_click"
+                      data-analytics-label={product.shortName}
+                      data-analytics-location="home-audience"
+                      data-analytics-product={product.id}
+                    >
                       {product.shortName}
                       <ArrowRight size={14} aria-hidden="true" />
                     </a>

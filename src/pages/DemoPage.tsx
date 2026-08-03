@@ -27,11 +27,22 @@ export function DemoPage() {
                 property-management operation.
               </p>
               <div className="subpage-hero__actions">
-                <Button href="#demo-form">
+                <Button
+                  href="#demo-form"
+                  data-analytics-event="product_cta_click"
+                  data-analytics-label="Start request"
+                  data-analytics-location="demo-hero"
+                >
                   Start request
                   <ArrowRight size={18} aria-hidden="true" />
                 </Button>
-                <Button href={`mailto:${CONTACT_EMAIL}`} variant="secondary">
+                <Button
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  variant="secondary"
+                  data-analytics-event="email_fallback_click"
+                  data-analytics-label="Email DocuScrit"
+                  data-analytics-location="demo-hero"
+                >
                   Email DocuScrit
                   <Mail size={18} aria-hidden="true" />
                 </Button>

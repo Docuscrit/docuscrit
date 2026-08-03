@@ -1,4 +1,5 @@
-﻿import { CONTACT_EMAIL } from "./contact";
+import type { AttributionData } from "./analytics";
+import { CONTACT_EMAIL } from "./contact";
 
 const FALLBACK_FORM_ENDPOINT = "";
 
@@ -13,6 +14,7 @@ export type DemoFormPayload = {
   message: string;
   interests: string[];
   gotcha?: string;
+  attribution: AttributionData;
 };
 
 export async function submitDemoRequest(payload: DemoFormPayload) {
@@ -39,6 +41,14 @@ export async function submitDemoRequest(payload: DemoFormPayload) {
       message: payload.message.trim(),
       destination: CONTACT_EMAIL,
       source: "DocuScrit website demo form",
+      landing_page: payload.attribution.landing_page,
+      referrer: payload.attribution.referrer,
+      utm_source: payload.attribution.utm_source,
+      utm_medium: payload.attribution.utm_medium,
+      utm_campaign: payload.attribution.utm_campaign,
+      utm_term: payload.attribution.utm_term,
+      utm_content: payload.attribution.utm_content,
+      gclid: payload.attribution.gclid,
     }),
   });
 
@@ -57,4 +67,3 @@ export async function submitDemoRequest(payload: DemoFormPayload) {
 
   throw new Error(errorMessage);
 }
-

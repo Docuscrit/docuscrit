@@ -24,11 +24,22 @@ export function SecurityPage() {
                 implementation details should be evaluated against your organization’s requirements before deployment.
               </p>
               <div className="subpage-hero__actions">
-                <Button href={createResourceMailto("Security and governance evaluation overview")}>
+                <Button
+                  href={createResourceMailto("Security and governance evaluation overview")}
+                  data-analytics-event="resource_open"
+                  data-analytics-label="Security and governance evaluation overview"
+                  data-analytics-location="security-hero"
+                >
                   Request security overview
                   <ArrowRight size={18} aria-hidden="true" />
                 </Button>
-                <Button href="/demo" variant="secondary">
+                <Button
+                  href="/demo"
+                  variant="secondary"
+                  data-analytics-event="product_cta_click"
+                  data-analytics-label="Discuss your requirements"
+                  data-analytics-location="security-hero"
+                >
                   Discuss your requirements
                   <ArrowRight size={18} aria-hidden="true" />
                 </Button>
@@ -101,7 +112,12 @@ export function SecurityPage() {
             <p className="eyebrow">Start a focused review</p>
             <h2>Share the controls and documentation your organization needs to evaluate.</h2>
             <p>DocuScrit can use those requirements to structure a more relevant product and security discussion.</p>
-            <Button href="/demo">
+            <Button
+              href="/demo"
+              data-analytics-event="product_cta_click"
+              data-analytics-label="Request an evaluation call"
+              data-analytics-location="security-footer"
+            >
               Request an evaluation call
               <ArrowRight size={18} aria-hidden="true" />
             </Button>

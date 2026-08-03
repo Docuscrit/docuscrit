@@ -34,7 +34,13 @@ export function ProofSection() {
             <p className="eyebrow">Security evaluation</p>
             <h3>Review document handling, access, auditability, retention, and legal boundaries with your stakeholders.</h3>
           </div>
-          <Button href="/security" variant="secondary">
+          <Button
+            href="/security"
+            variant="secondary"
+            data-analytics-event="resource_open"
+            data-analytics-label="Explore security and governance"
+            data-analytics-location="home-governance"
+          >
             Explore security and governance
             <ArrowRight size={18} aria-hidden="true" />
           </Button>

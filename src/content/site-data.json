@@ -12,7 +12,31 @@
       "description": "Automate vendor COI tracking, prepare compliance-reviewed claim packets before legal escalation, and give boards clearer compliance risk visibility with DocuScrit.",
       "ogType": "website",
       "priority": "1.0",
-      "changefreq": "weekly"
+      "changefreq": "weekly",
+      "breadcrumbName": "DocuScrit Platform",
+      "pageType": "WebPage",
+      "keywords": [
+        "HOA compliance workflow platform",
+        "property management compliance software",
+        "vendor COI automation",
+        "claim packet workflow",
+        "compliance risk reporting"
+      ],
+      "featureList": [
+        "Vendor COI automation",
+        "Centralized vendor tracking",
+        "COI expiration monitoring",
+        "Automated renewal reminders",
+        "Compliance-reviewed claim packet workflow",
+        "Board-ready compliance risk visibility"
+      ],
+      "audience": [
+        "HOA community managers",
+        "Property management companies",
+        "HOA boards",
+        "Compliance teams",
+        "Vendor coordinators"
+      ]
     },
     "/vendor-coi": {
       "path": "/vendor-coi",
@@ -20,7 +44,28 @@
       "description": "Centralize vendors, collect certificates of insurance, monitor expirations, automate renewal reminders, and surface vendor risk flags with DocuScrit.",
       "ogType": "website",
       "priority": "0.9",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Vendor COI Automation",
+      "pageType": "WebPage",
+      "keywords": [
+        "vendor COI automation",
+        "COI tracking software for property managers",
+        "certificate of insurance expiration monitoring",
+        "vendor insurance compliance"
+      ],
+      "featureList": [
+        "Centralized vendor tracking",
+        "Vendor upload links",
+        "COI expiration monitoring",
+        "Automated renewal reminders",
+        "Vendor risk flags",
+        "Portfolio-level COI visibility"
+      ],
+      "audience": [
+        "Vendor coordinators",
+        "Community managers",
+        "Property management operations leaders"
+      ]
     },
     "/legal-escalation": {
       "path": "/legal-escalation",
@@ -28,7 +73,29 @@
       "description": "Organize violation history, notices, evidence, cost context, and compliance review into a structured claim packet before legal escalation.",
       "ogType": "website",
       "priority": "0.9",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Legal Escalation and Claim Packets",
+      "pageType": "WebPage",
+      "keywords": [
+        "HOA legal escalation workflow",
+        "claim packet preparation",
+        "violation history documentation",
+        "compliance review before legal escalation"
+      ],
+      "featureList": [
+        "Organized violation history",
+        "Notice and evidence assembly",
+        "Claim packet readiness checks",
+        "Potential exposure context",
+        "Compliance review checkpoint",
+        "Legal counsel handoff"
+      ],
+      "audience": [
+        "HOA compliance teams",
+        "Community managers",
+        "HOA boards",
+        "Legal counsel"
+      ]
     },
     "/compliance-risk-visibility": {
       "path": "/compliance-risk-visibility",
@@ -36,7 +103,29 @@
       "description": "Give managers and HOA boards clearer visibility into document gaps, policy reviews, notice workflows, priorities, and follow-up status.",
       "ogType": "website",
       "priority": "0.9",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Compliance Risk Visibility",
+      "pageType": "WebPage",
+      "keywords": [
+        "HOA compliance risk reporting",
+        "board-ready compliance reports",
+        "document gap visibility",
+        "property management compliance dashboard"
+      ],
+      "featureList": [
+        "Required-document gap visibility",
+        "Policy review tracking",
+        "Notice workflow checks",
+        "Issue prioritization",
+        "Board-ready summaries",
+        "Portfolio compliance reporting"
+      ],
+      "audience": [
+        "HOA boards",
+        "Community managers",
+        "Compliance leaders",
+        "Property management executives"
+      ]
     },
     "/security": {
       "path": "/security",
@@ -44,7 +133,21 @@
       "description": "Review DocuScrit security and governance topics including document handling, access, auditability, data lifecycle, and human decision boundaries.",
       "ogType": "website",
       "priority": "0.7",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Security and Governance",
+      "pageType": "WebPage",
+      "keywords": [
+        "DocuScrit security",
+        "compliance workflow governance",
+        "document handling controls",
+        "human decision boundaries"
+      ],
+      "audience": [
+        "IT teams",
+        "Compliance leaders",
+        "Legal teams",
+        "Procurement teams"
+      ]
     },
     "/demo": {
       "path": "/demo",
@@ -52,7 +155,19 @@
       "description": "Request a tailored walkthrough of Vendor COI Automation, Legal Escalation and Claim Packets, Compliance Risk Visibility, or the complete DocuScrit platform.",
       "ogType": "website",
       "priority": "0.9",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Request a Demo",
+      "pageType": "ContactPage",
+      "keywords": [
+        "DocuScrit demo",
+        "HOA compliance software demo",
+        "vendor COI automation demo"
+      ],
+      "audience": [
+        "HOA management companies",
+        "Community association managers",
+        "Compliance teams"
+      ]
     },
     "/resources": {
       "path": "/resources",
@@ -60,7 +175,21 @@
       "description": "Browse DocuScrit guides for vendor COI automation, claim packet preparation, legal escalation readiness, board-ready risk reporting, and security evaluation.",
       "ogType": "website",
       "priority": "0.8",
-      "changefreq": "monthly"
+      "changefreq": "monthly",
+      "breadcrumbName": "Resources",
+      "pageType": "CollectionPage",
+      "keywords": [
+        "HOA compliance workflow guides",
+        "vendor COI checklist",
+        "claim packet workflow guide",
+        "board compliance reporting"
+      ],
+      "audience": [
+        "HOA managers",
+        "Property management teams",
+        "Boards",
+        "Compliance teams"
+      ]
     },
     "/privacy": {
       "path": "/privacy",
@@ -68,7 +197,9 @@
       "description": "Read how DocuScrit handles information submitted through the website and demo request flow.",
       "ogType": "article",
       "priority": "0.3",
-      "changefreq": "yearly"
+      "changefreq": "yearly",
+      "breadcrumbName": "Privacy Policy",
+      "pageType": "Article"
     },
     "/terms": {
       "path": "/terms",
@@ -76,7 +207,9 @@
       "description": "Read the terms that govern access to the DocuScrit marketing website, resources, and demo request flow.",
       "ogType": "article",
       "priority": "0.3",
-      "changefreq": "yearly"
+      "changefreq": "yearly",
+      "breadcrumbName": "Terms of Service",
+      "pageType": "Article"
     }
   },
   "contactPhone": "(832) 239-9924",

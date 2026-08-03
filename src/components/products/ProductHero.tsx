@@ -23,11 +23,24 @@ export function ProductHero({ product }: { product: ProductSolution }) {
               ))}
             </ul>
             <div className="product-page-hero__actions">
-              <Button href={`/demo?product=${product.id}#demo-form`}>
+              <Button
+                href={`/demo?product=${product.id}#demo-form`}
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Request a tailored demo"
+                data-analytics-location="product-hero"
+                data-analytics-product={product.id}
+              >
                 Request a tailored demo
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
-              <Button href="#workflow" variant="secondary">
+              <Button
+                href="#workflow"
+                variant="secondary"
+                data-analytics-event="product_cta_click"
+                data-analytics-label="See how it works"
+                data-analytics-location="product-hero"
+                data-analytics-product={product.id}
+              >
                 See how it works
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>

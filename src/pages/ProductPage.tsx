@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { ProductCapabilities } from "../components/products/ProductCapabilities";
 import { ProductHero } from "../components/products/ProductHero";
@@ -11,9 +12,18 @@ import type { ProductSolution } from "../content/products";
 import { productById } from "../content/products";
 import { resourceById } from "../content/resources";
 import { useRevealAnimations } from "../hooks/useRevealAnimations";
+import { trackEvent } from "../utils/analytics";
 
 export function ProductPage({ product }: { product: ProductSolution }) {
   useRevealAnimations();
+
+  useEffect(() => {
+    trackEvent("product_view", {
+      product: product.id,
+      product_name: product.name,
+    });
+  }, [product.id, product.name]);
+
   const relatedResources = product.relatedResourceIds.map((id) => resourceById[id]).filter(Boolean);
 
   return (
@@ -87,7 +97,13 @@ export function ProductPage({ product }: { product: ProductSolution }) {
                 <span>{resource.format}</span>
                 <h3>{resource.title}</h3>
                 <p>{resource.summary}</p>
-                <a href={`/resources#${resource.id}`}>
+                <a
+                  href={`/resources#${resource.id}`}
+                  data-analytics-event="resource_open"
+                  data-analytics-label={resource.title}
+                  data-analytics-location="product-page-related"
+                  data-analytics-product={product.id}
+                >
                   View resource
                   <ArrowRight size={17} aria-hidden="true" />
                 </a>
@@ -104,11 +120,24 @@ export function ProductPage({ product }: { product: ProductSolution }) {
             <h2>Review the workflow with your real operational priorities in mind.</h2>
             <p>Choose a tailored walkthrough of this solution or see how it connects with the complete DocuScrit platform.</p>
             <div>
-              <Button href={`/demo?product=${product.id}#demo-form`}>
+              <Button
+                href={`/demo?product=${product.id}#demo-form`}
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Request a tailored demo"
+                data-analytics-location="product-page-footer"
+                data-analytics-product={product.id}
+              >
                 Request a tailored demo
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
-              <Button href="/#platform" variant="secondary">
+              <Button
+                href="/#platform"
+                variant="secondary"
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Explore the platform"
+                data-analytics-location="product-page-footer"
+                data-analytics-product={product.id}
+              >
                 Explore the platform
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>

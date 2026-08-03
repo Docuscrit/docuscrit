@@ -5,11 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/postbuild-routes.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-server",
+    "build": "npm run generate:sitemap && npm run build:client && npm run build:ssr && node scripts/postbuild-routes.js",
     "typecheck": "tsc -b",
     "lint": "eslint .",
     "preview": "vite preview",
     "capture": "node scripts/capture.js",
+    "qa": "node scripts/qa.js",
     "validate:launch": "node scripts/validate-launch.js",
     "verify": "npm run typecheck && npm run lint && npm run build && npm run validate:launch"
   },

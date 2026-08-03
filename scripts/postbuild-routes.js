@@ -1,11 +1,25 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const distDir = join(root, "dist");
+const serverDir = join(root, "dist-server");
 const siteData = JSON.parse(readFileSync(join(root, "src/content/site-data.json"), "utf8"));
 const baseHtml = readFileSync(join(distDir, "index.html"), "utf8");
 const socialImage = `${siteData.siteUrl}${siteData.socialImagePath}`;
+const serverEntryFile = ["entry-server.js", "entry-server.mjs"]
+  .map((file) => join(serverDir, file))
+  .find((file) => existsSync(file)) ??
+  readdirSync(serverDir)
+    .filter((file) => /^entry-server\.(?:js|mjs)$/.test(file))
+    .map((file) => join(serverDir, file))[0];
+
+if (!serverEntryFile) {
+  throw new Error("The SSR build did not produce an entry-server bundle.");
+}
+
+const serverEntry = await import(pathToFileURL(serverEntryFile).href);
 
 function absoluteUrl(path) {
   return `${siteData.siteUrl}${path}`;
@@ -28,77 +42,12 @@ function escapeAttribute(value) {
     .replace(/>/g, "&gt;");
 }
 
-function breadcrumbItems(route) {
-  const items = [{ name: "Home", url: absoluteUrl("/") }];
-
-  if (route.path !== "/") {
-    items.push({ name: route.title.replace(" | DocuScrit", ""), url: absoluteUrl(route.path) });
-  }
-
-  return items;
-}
-
-function structuredData(route) {
-  const canonicalUrl = absoluteUrl(route.path);
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${siteData.siteUrl}/#organization`,
-        name: siteData.siteName,
-        url: siteData.siteUrl,
-        logo: `${siteData.siteUrl}/brand/docuscrit-app-icon.svg`,
-        email: siteData.contactEmail,
-        telephone: siteData.contactPhoneTel,
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${siteData.siteUrl}/#website`,
-        name: siteData.siteName,
-        url: siteData.siteUrl,
-        publisher: { "@id": `${siteData.siteUrl}/#organization` },
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${canonicalUrl}#webpage`,
-        url: canonicalUrl,
-        name: route.title,
-        description: route.description,
-        isPartOf: { "@id": `${siteData.siteUrl}/#website` },
-        about: { "@id": `${siteData.siteUrl}/#organization` },
-      },
-      ...(route.path === "/"
-        ? [
-            {
-              "@type": "SoftwareApplication",
-              "@id": `${siteData.siteUrl}/#software`,
-              name: siteData.siteName,
-              applicationCategory: "BusinessApplication",
-              operatingSystem: "Web",
-              description: route.description,
-              url: siteData.siteUrl,
-              publisher: { "@id": `${siteData.siteUrl}/#organization` },
-            },
-          ]
-        : []),
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${canonicalUrl}#breadcrumb`,
-        itemListElement: breadcrumbItems(route).map((item, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          name: item.name,
-          item: item.url,
-        })),
-      },
-    ],
-  };
-}
-
 function replaceMeta(html, attribute, key, content) {
   const escaped = escapeAttribute(content);
-  const pattern = new RegExp(`<meta\\s+${attribute}="${key}"\\s+content="[^"]*"\\s*/?>|<meta\\s+${attribute}="${key}"[^>]*?content="[^"]*"[^>]*?>`, "s");
+  const pattern = new RegExp(
+    `<meta\\s+${attribute}="${key}"\\s+content="[^"]*"\\s*/?>|<meta\\s+${attribute}="${key}"[^>]*?content="[^"]*"[^>]*?>`,
+    "s",
+  );
   const tag = `<meta ${attribute}="${key}" content="${escaped}" />`;
 
   if (pattern.test(html)) {
@@ -110,27 +59,51 @@ function replaceMeta(html, attribute, key, content) {
 
 function replaceCanonical(html, href) {
   const tag = `<link rel="canonical" href="${escapeAttribute(href)}" />`;
-  return html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/, tag);
-}
+  const pattern = /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?/;
 
-function upsertStructuredData(html, route) {
-  const tag = `<script type="application/ld+json" id="docuscrit-structured-data">${JSON.stringify(structuredData(route))}</script>`;
-
-  if (html.includes('id="docuscrit-structured-data"')) {
-    return html.replace(/<script type="application\/ld\+json" id="docuscrit-structured-data">[\s\S]*?<\/script>/, tag);
+  if (pattern.test(html)) {
+    return html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/, tag);
   }
 
   return html.replace("</head>", `    ${tag}\n  </head>`);
 }
 
-function renderRoute(route) {
-  const canonicalUrl = absoluteUrl(route.path);
-  let html = baseHtml;
+function upsertStructuredData(html, structuredData) {
+  const safeJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+  const tag = `<script type="application/ld+json" id="docuscrit-structured-data">${safeJson}</script>`;
+
+  if (html.includes('id="docuscrit-structured-data"')) {
+    return html.replace(
+      /<script type="application\/ld\+json" id="docuscrit-structured-data">[\s\S]*?<\/script>/,
+      tag,
+    );
+  }
+
+  return html.replace("</head>", `    ${tag}\n  </head>`);
+}
+
+function injectAppMarkup(html, markup) {
+  const rootPattern = /<div id="root"><\/div>/;
+
+  if (!rootPattern.test(html)) {
+    throw new Error("The client build does not contain an empty #root element for prerendering.");
+  }
+
+  return html.replace(rootPattern, `<div id="root">${markup}</div>`);
+}
+
+function renderHtml(route, pathname = route.path) {
+  const canonicalPath = route.path === "/404" ? pathname : route.path;
+  const canonicalUrl = absoluteUrl(canonicalPath);
+  const markup = serverEntry.render(pathname);
+  const structuredData = serverEntry.getStructuredDataForPath(pathname);
+  let html = injectAppMarkup(baseHtml, markup);
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeAttribute(route.title)}</title>`);
   html = replaceCanonical(html, canonicalUrl);
   html = replaceMeta(html, "name", "description", route.description);
   html = replaceMeta(html, "name", "robots", route.noindex ? "noindex, nofollow" : "index, follow");
+  html = replaceMeta(html, "name", "keywords", route.keywords?.join(", ") ?? "");
   html = replaceMeta(html, "property", "og:site_name", siteData.siteName);
   html = replaceMeta(html, "property", "og:title", route.title);
   html = replaceMeta(html, "property", "og:description", route.description);
@@ -144,7 +117,13 @@ function renderRoute(route) {
   html = replaceMeta(html, "name", "twitter:title", route.title);
   html = replaceMeta(html, "name", "twitter:description", route.description);
   html = replaceMeta(html, "name", "twitter:image", socialImage);
-  html = upsertStructuredData(html, route);
+  html = upsertStructuredData(html, structuredData);
+
+  return html;
+}
+
+for (const route of Object.values(siteData.routes)) {
+  const html = renderHtml(route);
 
   for (const outputPath of routeOutputPaths(route.path)) {
     mkdirSync(dirname(outputPath), { recursive: true });
@@ -152,8 +131,15 @@ function renderRoute(route) {
   }
 }
 
-for (const route of Object.values(siteData.routes)) {
-  renderRoute(route);
-}
+const notFoundRoute = {
+  path: "/404",
+  title: "Page Not Found | DocuScrit",
+  description: "The requested DocuScrit page could not be found.",
+  ogType: "website",
+  noindex: true,
+  keywords: [],
+};
+writeFileSync(join(distDir, "404.html"), renderHtml(notFoundRoute, "/404"));
 
-console.log(`Generated ${Object.keys(siteData.routes).length} static route entry files.`);
+rmSync(serverDir, { recursive: true, force: true });
+console.log(`Prerendered ${Object.keys(siteData.routes).length} routes plus 404.html.`);

@@ -27,7 +27,13 @@ export function ResourcesSection() {
               <h3>{card.title}</h3>
               <p>{card.copy}</p>
               <ResourcePreview preview={card.preview} />
-              <a href={card.href} className="resource-card__cta">
+              <a
+                href={card.href}
+                className="resource-card__cta"
+                data-analytics-event="resource_open"
+                data-analytics-label={card.title}
+                data-analytics-location="home-resources"
+              >
                 {card.cta}
                 <ArrowRight size={18} aria-hidden="true" />
               </a>
@@ -36,7 +42,13 @@ export function ResourcesSection() {
         </div>
 
         <div className="resources-section__cta">
-          <Button href="/resources" variant="secondary">
+          <Button
+            href="/resources"
+            variant="secondary"
+            data-analytics-event="resource_open"
+            data-analytics-label="View resource center"
+            data-analytics-location="home-resources"
+          >
             View resource center
             <ArrowRight size={18} aria-hidden="true" />
           </Button>

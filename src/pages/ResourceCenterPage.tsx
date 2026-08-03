@@ -53,11 +53,22 @@ function ResourceCard({ resource }: { resource: ResourceDetail }) {
         </div>
       </div>
       <div className="resource-library-card__actions">
-        <Button href={createResourceMailto(resource.title)}>
+        <Button
+          href={createResourceMailto(resource.title)}
+          data-analytics-event="resource_open"
+          data-analytics-label={resource.title}
+          data-analytics-location="resource-library"
+        >
           {resource.requestLabel}
           <ArrowRight size={18} aria-hidden="true" />
         </Button>
-        <Button href="/demo" variant="secondary">
+        <Button
+          href="/demo"
+          variant="secondary"
+          data-analytics-event="product_cta_click"
+          data-analytics-label="Discuss resource in a demo"
+          data-analytics-location="resource-library"
+        >
           Discuss in a demo
           <ArrowRight size={18} aria-hidden="true" />
         </Button>
@@ -78,11 +89,22 @@ export function ResourceCenterPage() {
               Browse platform, vendor compliance, legal escalation, risk reporting, and security evaluation resources.
             </p>
             <div className="subpage-hero__actions subpage-hero__actions--center">
-              <Button href="#platform-resources">
+              <Button
+                href="#platform-resources"
+                data-analytics-event="resource_open"
+                data-analytics-label="Browse resources"
+                data-analytics-location="resources-hero"
+              >
                 Browse by solution
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
-              <Button href="/demo" variant="secondary">
+              <Button
+                href="/demo"
+                variant="secondary"
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Request a demo"
+                data-analytics-location="resources-hero"
+              >
                 Request a demo
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
@@ -97,7 +119,13 @@ export function ResourceCenterPage() {
             {categoryOrder.map((category) => {
               const firstResource = resourceDetails.find((resource) => resource.category === category);
               return (
-                <a href={`#${category}-resources`} key={category}>
+                <a
+                  href={`#${category}-resources`}
+                  key={category}
+                  data-analytics-event="resource_open"
+                  data-analytics-label={resourceCategoryLabels[category]}
+                  data-analytics-location="resource-category-nav"
+                >
                   <VisualIcon name={iconByCategory[category]} size={22} />
                   <span>{resourceCategoryLabels[category]}</span>
                   <small>{resourceDetails.filter((resource) => resource.category === category).length} resources</small>
@@ -147,7 +175,12 @@ export function ResourceCenterPage() {
               Tell DocuScrit what your team is trying to improve and the conversation can start with the most relevant guide
               or walkthrough.
             </p>
-            <Button href="/demo">
+            <Button
+              href="/demo"
+              data-analytics-event="product_cta_click"
+              data-analytics-label="Request a tailored walkthrough"
+              data-analytics-location="resources-footer"
+            >
               Request guidance
               <ArrowRight size={18} aria-hidden="true" />
             </Button>

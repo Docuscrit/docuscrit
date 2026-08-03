@@ -1,9 +1,10 @@
 import { useEffect, useLayoutEffect } from "react";
 
 const REVEAL_SAFETY_TIMEOUT_MS = 900;
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 export function useRevealAnimations() {
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const revealTargets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

@@ -16,6 +16,7 @@ const routes = [
   { name: "demo", path: "/demo" },
   { name: "privacy", path: "/privacy" },
   { name: "terms", path: "/terms" },
+  { name: "not-found", path: "/404.html" },
 ];
 
 const viewports = [

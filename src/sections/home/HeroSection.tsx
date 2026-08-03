@@ -27,11 +27,22 @@ export function HeroSection() {
               gaps, and prepare reviewed claim packets before legal or court escalation.
             </p>
             <div className="home-hero__actions" data-reveal="fade-up">
-              <Button href="/demo">
+              <Button
+                href="/demo"
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Request Demo"
+                data-analytics-location="home-hero"
+              >
                 Request Demo
                 <ArrowRight size={18} aria-hidden="true" />
               </Button>
-              <Button href="/#platform" variant="secondary">
+              <Button
+                href="/#platform"
+                variant="secondary"
+                data-analytics-event="product_cta_click"
+                data-analytics-label="Explore the platform"
+                data-analytics-location="home-hero"
+              >
                 Explore the platform
                 <ArrowDown size={18} aria-hidden="true" />
               </Button>

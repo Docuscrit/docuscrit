@@ -27,11 +27,25 @@ export function ProductPanel({ product, index }: ProductPanelProps) {
         </ul>
         <p className="product-panel__outcome">{product.outcome}</p>
         <div className="product-panel__actions">
-          <Button href={product.path} variant="secondary">
+          <Button
+            href={product.path}
+            variant="secondary"
+            data-analytics-event="product_cta_click"
+            data-analytics-label={`Explore ${product.shortName}`}
+            data-analytics-location="home-product-panel"
+            data-analytics-product={product.id}
+          >
             Explore {product.shortName}
             <ArrowRight size={18} aria-hidden="true" />
           </Button>
-          <a className="product-panel__text-link" href={`/demo?product=${product.id}#demo-form`}>
+          <a
+            className="product-panel__text-link"
+            href={`/demo?product=${product.id}#demo-form`}
+            data-analytics-event="product_cta_click"
+            data-analytics-label="Request demo"
+            data-analytics-location="home-product-panel"
+            data-analytics-product={product.id}
+          >
             Request demo
             <ArrowRight size={16} aria-hidden="true" />
           </a>
